@@ -10,12 +10,17 @@ function Brands() {
     { name: 'Atlas', logo: '/marcas/atlas-logo.png' }
   ]
 
-  // Array de imagens dos projetos
-  const projectImages = Array.from({ length: 12 }, (_, i) => ({
-    id: i + 1,
-    src: `/fotos/img${i + 1}.jpg`,
-    alt: `Projeto Via Cor Revestimentos ${i + 1}`
-  }))
+  // Array de imagens dos projetos (apenas as 8 imagens disponíveis)
+  const projectImages = [
+    { id: 1, src: '/fotos/img1.jpg', alt: 'Projeto Via Cor Revestimentos 1' },
+    { id: 2, src: '/fotos/img2.jpg', alt: 'Projeto Via Cor Revestimentos 2' },
+    { id: 3, src: '/fotos/img3.JPG', alt: 'Projeto Via Cor Revestimentos 3' },
+    { id: 4, src: '/fotos/img4.jpg', alt: 'Projeto Via Cor Revestimentos 4' },
+    { id: 5, src: '/fotos/img5.jpg', alt: 'Projeto Via Cor Revestimentos 5' },
+    { id: 6, src: '/fotos/img6.jpg', alt: 'Projeto Via Cor Revestimentos 6' },
+    { id: 7, src: '/fotos/img7.jpg', alt: 'Projeto Via Cor Revestimentos 7' },
+    { id: 8, src: '/fotos/img8.jpg', alt: 'Projeto Via Cor Revestimentos 8' }
+  ]
 
   // Estados e Refs
   const [selectedImage, setSelectedImage] = useState(null)
