@@ -178,6 +178,343 @@ Lista de aprendizados reutilizados:
 
 ---
 
+# 🏗️ Projeto: Via Cor Revestimentos
+
+## Sobre o Projeto
+
+Landing page premium desenvolvida para **Via Cor Revestimentos**, boutique especializada em acabamentos de alto padrão na Zona Sul de São Paulo. O projeto foi criado com foco em conversão, direcionando visitantes para o WhatsApp e agendamento de visitas ao showroom sensorial de 450m².
+
+- **Objetivo da landing page:** Conversão via WhatsApp e agendamento de visitas
+- **Foco de conversão:** WhatsApp + Agendamento de visitas ao showroom
+- **Nicho/segmento de mercado:** Acabamentos e revestimentos premium (classe média-alta/alta)
+
+## Conceito de Design: "Premium Glassmorphism"
+
+O projeto segue uma filosofia de design sólida e tradicional chamada **"Premium Glassmorphism"**, que transmite:
+
+- **Sólido e Tradicional:** Estética que reflete 40 anos de autoridade no mercado
+- **Glassmorphism Premium:** Efeito de vidro fosco para sofisticação visual
+- **Dualidade Visual:** Combina solidez (azul) com paixão (vermelho)
+- **Boutique Especializada:** Visual que transmite exclusividade e curadoria
+
+### Paleta de Cores
+
+- **Azul Marinho (#1E3A5F):** Cor principal "VIA" - Confiança, seriedade, tradição corporativa
+- **Vermelho Terracota (#C0392B):** Cor "Cor" - Paixão, decoração, elemento humano ("afetivo")
+- **Gradiente de Azuis:** #3498DB, #5DADE2, #85C1E9 - Água (piscinas, banheiros), higiene, variedade
+
+### Tipografia
+
+- **Playfair Display (Serif):** Títulos e headlines - Reflete o "Cor" (elegância, decoração, acabamento)
+- **Inter (Sans-serif):** Corpo de texto - Reflete o "VIA" (estrutura, confiança, obra)
+
+**Hierarquia Tipográfica:**
+- H1: Playfair Display, 700, 3.5rem - 4.5rem
+- H2-H4: Playfair Display, 600, 2.5rem - 3.5rem
+- Corpo: Inter, 400, 1rem - 1.125rem, line-height 1.6-1.7
+- CTAs: Inter, 600, 1rem - 1.125rem
+
+### Estilo Visual Geral
+
+- **Sofisticação Sóbria:** Foco nas imagens dos produtos (texturas, pedras, ambientes)
+- **Marca de Tradição:** Estética dos anos 90/2000, não minimalista/moderna
+- **Sólida e Tradicional:** Confiança na autoridade do tempo de mercado (40 anos)
+
+## Estrutura da Landing Page
+
+A página foi organizada seguindo uma **hierarquia de conversão** otimizada:
+
+1. **Header:** Navegação fixa com glassmorphism
+2. **Hero Section:** Abertura com proposta de valor e CTA principal
+3. **Marcas:** Autoridade com marcas premium (Portinari, Castellato, Eliane, Atlas + outras 20)
+4. **Depoimentos:** Prova social (Google Reviews)
+5. **Benefícios:** Diferenciais e vantagens (5 benefícios principais)
+6. **CTA Final:** Chamada para ação com informações de contato
+7. **Footer:** Informações complementares
+8. **WhatsApp Button:** Botão flutuante fixo
+
+## Tecnologias Utilizadas
+
+- **React 19.2.0:** Framework JavaScript
+- **Vite 7.2.4:** Build tool e dev server
+- **Tailwind CSS v4:** Framework CSS utility-first (via @tailwindcss/vite)
+- **Google Fonts:** Playfair Display + Inter
+
+## Estratégias de Conversão Implementadas
+
+### 1. WhatsApp como CTA Principal
+- Botão flutuante sempre visível
+- CTAs em múltiplas seções com mensagens pré-formatadas
+- Vermelho terracota como cor de destaque (contraste estratégico)
+
+### 2. Glassmorphism Premium
+- Header e Hero com efeito de vidro fosco
+- Transmite sofisticação e modernidade
+- Mantém legibilidade sobre imagens de fundo
+
+### 3. Animações Premium
+- Botão CTA com pulse contínuo, shimmer e glow
+- Destaque visual para conversão
+- Feedback imediato nas interações
+
+### 4. Prova Social
+- Seção de depoimentos (Google Reviews)
+- Marcas premium destacadas (Portinari, Castellato, Eliane, Atlas)
+- 40 anos de experiência dos proprietários
+
+### 5. Hierarquia Visual Clara
+- Tipografia premium (Playfair Display + Inter)
+- Contraste otimizado para legibilidade
+- Glassmorphism com opacidade aumentada (25%)
+
+## Componentes Principais
+
+### Header.jsx
+- Navegação fixa com glassmorphism (`bg-white/10 backdrop-blur-md`)
+- Logo da Via Cor
+- Links de navegação com hover em vermelho terracota
+- Responsivo (menu oculto em mobile)
+
+### Hero.jsx
+- Background com imagem do showroom
+- Título em container glassmorphism (`bg-white/25 backdrop-blur-lg`)
+- Parágrafo com contraste otimizado (100% opacidade)
+- Botão CTA centralizado com animações premium (pulse, shimmer, glow)
+- Informação de localização (Zona Sul de São Paulo)
+
+### Brands.jsx
+- Seção de autoridade com marcas premium
+- Lista de marcas (Portinari, Castellato, Eliane, Atlas + outras 20)
+- Espaço para imagens de projetos realizados
+
+### Testimonials.jsx
+- Grid para prints do Google Reviews
+- Prova social dos clientes
+- Foco em elogios ao atendimento, curadoria e experiência no showroom
+
+### Benefits.jsx
+- Lista de 5 benefícios com checkmarks em vermelho terracota
+- Espaço para carrossel de fotos do showroom e ambientações
+
+### CTA.jsx
+- Chamada para ação final
+- Informações de contato (endereço, horários, estacionamento)
+- Espaço para foto do showroom e mapa (Google Maps)
+
+### Footer.jsx
+- Fundo azul marinho (#1E3A5F)
+- Links rápidos com hover em vermelho terracota
+- Informações de contato
+
+### WhatsAppButton.jsx
+- Botão flutuante fixo
+- Link direto com mensagem pré-formatada
+- Tooltip no hover
+
+## Responsividade
+
+### Abordagem: Mobile-First
+- Layouts otimizados para mobile
+- Breakpoints: mobile (< 768px), desktop (≥ 768px), large (≥ 1024px)
+
+### Adaptações Específicas
+- Header: Menu oculto em mobile
+- Hero: Tamanhos de fonte reduzidos em mobile
+- Glassmorphism: Mantido em todos os dispositivos
+- Botões: Tamanhos adequados para touch
+
+## Aprendizados Aplicados de Projetos Anteriores
+
+1. **WhatsApp como CTA principal:** Estratégia validada de projetos anteriores (Victor Buquera, Nunes Móveis)
+2. **Glassmorphism:** Efeito premium aplicado com sucesso (inspirado em modal do projeto Nunes Móveis)
+3. **Tipografia dual:** Reflete a identidade visual do logo (similar ao conceito do Victor Buquera)
+4. **Animações sutis:** Pulse e shimmer para destaque sem exageros
+5. **Paleta de cores da marca:** Aplicação consistente em todos os componentes
+
+## Erros Encontrados e Soluções
+
+### ✅ Erro 1: Tailwind CSS não estava funcionando
+**Data:** Início do projeto  
+**Problema:** Tailwind CSS não estava sendo processado corretamente  
+**Causa:** 
+- Plugin do Tailwind não estava configurado no `vite.config.js`
+- Import do Tailwind não estava no arquivo correto
+
+**Solução:**
+- Instalado: `npm install -D tailwindcss @tailwindcss/vite`
+- Adicionado plugin no `vite.config.js`: `tailwindcss()`
+- Adicionado `@import "tailwindcss"` no `index.css`
+
+**Status:** ✅ Resolvido
+
+---
+
+### ✅ Erro 2: Imagem do logo com espaço no nome
+**Data:** Durante implementação do Header  
+**Problema:** Arquivo `viacor-logo-instagram .jpg` tem espaço no nome  
+**Causa:** Nome do arquivo com espaço antes da extensão  
+
+**Solução:**
+- Mantido nome original do arquivo
+- Caminho usado exatamente como está: `/viacor-logo-instagram .jpg`
+
+**Status:** ✅ Resolvido (funcionando com nome original)
+
+---
+
+## Acertos e Melhorias Implementadas
+
+### ✅ Configuração do Tailwind CSS v4
+- Tailwind v4 configurado corretamente com plugin do Vite
+- Funcionando perfeitamente em todos os componentes
+- Não precisa de `tailwind.config.js` (configuração via plugin)
+
+### ✅ Tipografia Premium (Playfair Display + Inter)
+- Implementada Opção 1 conforme recomendação
+- Reflete perfeitamente a dualidade do logo (VIA geométrica + Cor serifada)
+- Hierarquia visual clara e legível
+- Google Fonts carregadas via CDN
+
+### ✅ Glassmorphism no Header e Hero
+- Efeito de vidro fosco aplicado
+- Background semi-transparente com backdrop-blur
+- Bordas sutis e sombras para profundidade
+- Opacidade otimizada (10% Header, 25% Hero)
+
+### ✅ Animações Premium no Botão CTA
+- Pulse contínuo sutil (3s loop infinito)
+- Shimmer effect no hover (brilho que atravessa)
+- Glow effect no hover (brightness 100% → 115%)
+- Scale e translateY para feedback visual
+- Múltiplas animações funcionando simultaneamente
+
+### ✅ Paleta de Cores da Marca
+- Azul marinho (#1E3A5F) aplicado consistentemente
+- Vermelho terracota (#C0392B) em CTAs e destaques
+- Variáveis CSS criadas para reutilização
+- Cores aplicadas em todos os componentes
+
+### ✅ Contraste Otimizado
+- Textos com 100% de opacidade (antes 90-95%)
+- Drop-shadows para legibilidade (drop-shadow-lg, drop-shadow-2xl)
+- Glassmorphism com opacidade aumentada (25% no Hero)
+- Font-weight aumentado em textos importantes (font-semibold)
+
+### ✅ Centralização do Botão CTA
+- Botão centralizado no Hero
+- Layout equilibrado e profissional
+- Container flex com justify-center
+
+## Implementações Especiais
+
+### Implementação: Glassmorphism Premium
+**Data:** Durante desenvolvimento do Hero e Header  
+**Objetivo:** Criar efeito visual sofisticado que transmite premium e modernidade  
+
+**Pensamento e Decisões:**
+- Glassmorphism combina com o posicionamento de boutique especializada
+- Efeito de vidro fosco cria profundidade visual
+- Backdrop-blur mantém legibilidade sobre imagens
+- Opacidade diferenciada: Header (10%) mais sutil, Hero (25%) mais visível
+
+**Código/Exemplo:**
+```css
+/* Header */
+bg-white/10 backdrop-blur-md border border-white/20
+
+/* Hero Title Container */
+bg-white/25 backdrop-blur-lg border border-white/30 rounded-2xl
+```
+
+**Resultado:** ✅ Implementado e funcionando perfeitamente
+
+---
+
+### Implementação: Animações Premium no Botão CTA
+**Data:** Durante desenvolvimento do Hero  
+**Objetivo:** Criar botão CTA que se destaque visualmente e atraia atenção  
+
+**Pensamento e Decisões:**
+- Animações sutis mas impactantes
+- Pulse contínuo para sempre chamar atenção
+- Shimmer no hover para feedback imediato
+- Glow para intensificar no hover
+- Múltiplas animações simultâneas sem conflito
+
+**Código/Exemplo:**
+```css
+@keyframes premium-pulse {
+  0%, 100% {
+    box-shadow: 0 0 20px rgba(192, 57, 43, 0.4),
+                0 0 40px rgba(192, 57, 43, 0.2);
+  }
+  50% {
+    box-shadow: 0 0 30px rgba(192, 57, 43, 0.6),
+                0 0 60px rgba(192, 57, 43, 0.3);
+  }
+}
+
+.btn-premium::before {
+  /* Shimmer effect */
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+  transition: left 0.5s;
+}
+```
+
+**Resultado:** ✅ Implementado com múltiplas animações funcionando
+
+---
+
+### Implementação: Tipografia Dual (Playfair Display + Inter)
+**Data:** Após análise do branding  
+**Objetivo:** Refletir a dualidade do logo (VIA geométrica + Cor serifada)  
+
+**Pensamento e Decisões:**
+- Playfair Display (serif) para títulos = "Cor" (elegância, decoração)
+- Inter (sans-serif) para corpo = "VIA" (estrutura, confiança)
+- Combinação transmite tradição + modernidade
+- Alinha com posicionamento de marca sólida mas sofisticada
+
+**Resultado:** ✅ Implementado e alinhado com identidade visual
+
+---
+
+## Status do Projeto
+
+✅ **Estrutura completa implementada**  
+✅ **Design "Premium Glassmorphism" aplicado**  
+✅ **Tipografia premium configurada**  
+✅ **Paleta de cores da marca aplicada**  
+✅ **Animações premium implementadas**  
+✅ **Glassmorphism no Header e Hero**  
+✅ **Responsividade completa**  
+⏳ **Aguardando conteúdo real (imagens, depoimentos)**  
+⏳ **Configurar número de WhatsApp real**  
+⏳ **Adicionar Google Maps**  
+
+## Próximos Passos
+
+### Implementações Pendentes
+- [ ] Substituir placeholders por imagens reais dos projetos
+- [ ] Adicionar prints reais do Google Reviews
+- [ ] Configurar número de WhatsApp real (atualmente placeholder)
+- [ ] Adicionar Google Maps na seção de contato
+- [ ] Implementar carrossel de fotos do showroom
+- [ ] Adicionar foto do showroom na seção CTA
+- [ ] Otimizar imagens para performance (lazy loading, compressão)
+- [ ] Configurar SEO e meta tags completas
+- [ ] Adicionar Google Tag Manager / Analytics
+- [ ] Testes de acessibilidade
+
+### Melhorias Futuras (Opcional)
+- [ ] Adicionar animações de scroll reveal
+- [ ] Implementar menu mobile hamburger
+- [ ] Adicionar mais interatividade nas seções
+- [ ] A/B testing de CTAs
+- [ ] Análise de conversão e otimizações baseadas em dados
+
+---
+
 # 📸 Projeto: Victor Buquera Photography
 
 ## Sobre o Projeto

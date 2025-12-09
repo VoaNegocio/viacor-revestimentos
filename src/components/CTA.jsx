@@ -1,3 +1,7 @@
+import { HiLocationMarker } from 'react-icons/hi'
+import { MdDirectionsCar, MdAccessTime } from 'react-icons/md'
+import { FaCamera, FaMap } from 'react-icons/fa'
+
 function CTA() {
   const whatsappUrl = "https://wa.me/5511999999999?text=Olá! Gostaria de agendar uma visita ao showroom da Via Cor Revestimentos."
 
@@ -26,7 +30,7 @@ function CTA() {
           {/* Informações de Contato */}
           <div className="space-y-6">
             <div className="flex items-start gap-4">
-              <span className="text-2xl">📍</span>
+              <HiLocationMarker className="text-2xl text-[#1E3A5F] flex-shrink-0 mt-1" />
               <div>
                 <p className="font-semibold text-gray-900 mb-1">Endereço</p>
                 <p className="text-gray-700">
@@ -36,7 +40,7 @@ function CTA() {
             </div>
 
             <div className="flex items-start gap-4">
-              <span className="text-2xl">🚗</span>
+              <MdDirectionsCar className="text-2xl text-[#1E3A5F] flex-shrink-0 mt-1" />
               <div>
                 <p className="font-semibold text-gray-900 mb-1">Estacionamento</p>
                 <p className="text-gray-700">
@@ -46,7 +50,7 @@ function CTA() {
             </div>
 
             <div className="flex items-start gap-4">
-              <span className="text-2xl">🕒</span>
+              <MdAccessTime className="text-2xl text-[#1E3A5F] flex-shrink-0 mt-1" />
               <div>
                 <p className="font-semibold text-gray-900 mb-1">Horário de Funcionamento</p>
                 <p className="text-gray-700">
@@ -60,14 +64,20 @@ function CTA() {
           {/* Espaço para foto e mapa */}
           <div className="space-y-6">
             <div className="bg-gray-100 rounded-2xl p-8 min-h-[300px] flex items-center justify-center">
-              <p className="text-gray-500 text-center text-sm">
-                📷 Foto do showroom
-              </p>
+              <div className="flex flex-col items-center gap-2 text-gray-500">
+                <FaCamera className="text-3xl" />
+                <p className="text-center text-sm">
+                  Foto do showroom
+                </p>
+              </div>
             </div>
             <div className="bg-gray-100 rounded-2xl p-8 min-h-[300px] flex items-center justify-center">
-              <p className="text-gray-500 text-center text-sm">
-                🗺️ Mapa/Google Maps
-              </p>
+              <div className="flex flex-col items-center gap-2 text-gray-500">
+                <FaMap className="text-3xl" />
+                <p className="text-center text-sm">
+                  Mapa/Google Maps
+                </p>
+              </div>
             </div>
           </div>
         </div>

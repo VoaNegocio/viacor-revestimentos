@@ -1,3 +1,5 @@
+import { HiLocationMarker } from 'react-icons/hi'
+
 function Hero() {
   return (
     <section className="relative min-h-screen flex items-center pt-16 md:pt-20 overflow-hidden">
@@ -30,7 +32,7 @@ function Hero() {
 
           <div className="flex flex-col sm:flex-row gap-4 mb-8">
             <div className="flex items-center gap-2 text-white">
-              <span className="text-xl drop-shadow-lg">📍</span>
+              <HiLocationMarker className="text-xl drop-shadow-lg" />
               <span className="text-base md:text-lg font-medium drop-shadow-md">Zona Sul de São Paulo | Estacionamento no local</span>
             </div>
           </div>
