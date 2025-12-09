@@ -1,18 +1,18 @@
 import { HiLocationMarker } from 'react-icons/hi'
 import { MdDirectionsCar, MdAccessTime } from 'react-icons/md'
-import { FaCamera, FaMap } from 'react-icons/fa'
+import { FaMap } from 'react-icons/fa'
 
 function CTA() {
   const whatsappUrl = "https://wa.me/5511999999999?text=Olá! Gostaria de agendar uma visita ao showroom da Via Cor Revestimentos."
 
   return (
-    <section id="contato" className="py-16 md:py-24 px-4 bg-gradient-to-b from-gray-50 to-white">
+    <section id="contato" className="py-16 md:py-24 px-4 bg-[#1E3A5F]">
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-12 md:mb-16">
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-6 font-serif">
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-6 font-serif">
             Agende sua visita ao showroom e descubra como elevar o nível do seu projeto
           </h2>
-          <p className="text-lg md:text-xl text-gray-700 max-w-3xl mx-auto mb-8">
+          <p className="text-lg md:text-xl text-white max-w-3xl mx-auto mb-8">
             Atendimento personalizado via WhatsApp com especialistas em acabamentos de alto padrão.
           </p>
           
@@ -30,30 +30,30 @@ function CTA() {
           {/* Informações de Contato */}
           <div className="space-y-6">
             <div className="flex items-start gap-4">
-              <HiLocationMarker className="text-2xl text-[#1E3A5F] flex-shrink-0 mt-1" />
+              <HiLocationMarker className="text-2xl text-white flex-shrink-0 mt-1" />
               <div>
-                <p className="font-semibold text-gray-900 mb-1">Endereço</p>
-                <p className="text-gray-700">
+                <p className="font-semibold text-white mb-1">Endereço</p>
+                <p className="text-white/90">
                   Av. João Dias, 999/1009 – Granja Julieta, São Paulo – SP
                 </p>
               </div>
             </div>
 
             <div className="flex items-start gap-4">
-              <MdDirectionsCar className="text-2xl text-[#1E3A5F] flex-shrink-0 mt-1" />
+              <MdDirectionsCar className="text-2xl text-white flex-shrink-0 mt-1" />
               <div>
-                <p className="font-semibold text-gray-900 mb-1">Estacionamento</p>
-                <p className="text-gray-700">
+                <p className="font-semibold text-white mb-1">Estacionamento</p>
+                <p className="text-white/90">
                   Showroom com estacionamento próprio
                 </p>
               </div>
             </div>
 
             <div className="flex items-start gap-4">
-              <MdAccessTime className="text-2xl text-[#1E3A5F] flex-shrink-0 mt-1" />
+              <MdAccessTime className="text-2xl text-white flex-shrink-0 mt-1" />
               <div>
-                <p className="font-semibold text-gray-900 mb-1">Horário de Funcionamento</p>
-                <p className="text-gray-700">
+                <p className="font-semibold text-white mb-1">Horário de Funcionamento</p>
+                <p className="text-white/90">
                   Segunda a sexta das 9h às 18h<br />
                   Sábado das 9h às 14h
                 </p>
@@ -61,18 +61,10 @@ function CTA() {
             </div>
           </div>
 
-          {/* Espaço para foto e mapa */}
-          <div className="space-y-6">
-            <div className="bg-gray-100 rounded-2xl p-8 min-h-[300px] flex items-center justify-center">
-              <div className="flex flex-col items-center gap-2 text-gray-500">
-                <FaCamera className="text-3xl" />
-                <p className="text-center text-sm">
-                  Foto do showroom
-                </p>
-              </div>
-            </div>
-            <div className="bg-gray-100 rounded-2xl p-8 min-h-[300px] flex items-center justify-center">
-              <div className="flex flex-col items-center gap-2 text-gray-500">
+          {/* Espaço para mapa */}
+          <div>
+            <div className="bg-white/10 backdrop-blur-sm border border-white/20 rounded-2xl p-8 min-h-[300px] flex items-center justify-center">
+              <div className="flex flex-col items-center gap-2 text-white/70">
                 <FaMap className="text-3xl" />
                 <p className="text-center text-sm">
                   Mapa/Google Maps

@@ -1,4 +1,3 @@
-import Header from './components/Header'
 import Hero from './components/Hero'
 import Brands from './components/Brands'
 import Testimonials from './components/Testimonials'
@@ -10,7 +9,6 @@ import WhatsAppButton from './components/WhatsAppButton'
 function App() {
   return (
     <div className="min-h-screen">
-      <Header />
       <Hero />
       <Brands />
       <Testimonials />

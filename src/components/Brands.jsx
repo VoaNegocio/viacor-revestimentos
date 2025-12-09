@@ -4,11 +4,10 @@ import { FaChevronLeft, FaChevronRight, FaTimes } from 'react-icons/fa'
 
 function Brands() {
   const brands = [
-    { name: 'Portinari' },
-    { name: 'Castellato' },
-    { name: 'Eliane' },
-    { name: 'Atlas' },
-    { name: '+ outras 20 marcas selecionadas' }
+    { name: 'Portinari', logo: '/marcas/portinari-logo.svg' },
+    { name: 'Castellato', logo: '/marcas/castelato-logo3.png' },
+    { name: 'Eliane', logo: '/marcas/eliane-logo.png' },
+    { name: 'Atlas', logo: '/marcas/atlas-logo.png' }
   ]
 
   // Array de imagens dos projetos
@@ -58,23 +57,47 @@ function Brands() {
   }, [selectedImage])
 
   return (
-    <section id="marcas" className="py-16 md:py-24 px-4 bg-white">
-      <div className="max-w-7xl mx-auto">
+    <section id="marcas" className="py-16 md:py-24 px-4 relative overflow-hidden">
+      {/* Background Premium - Branding Via Cor */}
+      <div className="absolute inset-0 bg-gradient-to-br from-gray-50 via-white to-[#1E3A5F]/5"></div>
+      {/* Padrão geométrico sutil inspirado nos mosaicos */}
+      <div 
+        className="absolute inset-0 opacity-[0.03]"
+        style={{
+          backgroundImage: `
+            repeating-linear-gradient(45deg, transparent, transparent 10px, #1E3A5F 10px, #1E3A5F 20px),
+            repeating-linear-gradient(-45deg, transparent, transparent 10px, #C0392B 10px, #C0392B 20px)
+          `,
+          backgroundSize: '40px 40px'
+        }}
+      ></div>
+      <div className="relative z-10">
+        <div className="max-w-7xl mx-auto">
         <div className="text-center mb-12 md:mb-16">
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-6 font-serif">
             Trabalhamos com quem dita tendência em acabamentos de alto padrão
           </h2>
           
-          {/* Lista de Marcas - Desktop: antes da galeria, Mobile: depois da galeria */}
-          <div className="hidden md:flex flex-wrap items-center justify-center gap-4 md:gap-6 mb-8">
+          {/* Logos das Marcas - Desktop: antes da galeria */}
+          <div className="hidden md:flex flex-wrap items-center justify-center gap-6 md:gap-8 mb-8">
             {brands.map((brand, index) => (
-              <span 
+              <div 
                 key={index}
-                className="text-lg md:text-xl font-semibold text-[#1E3A5F] px-4 py-2 border-b-2 border-[#C0392B]"
+                className="flex items-center justify-center h-16 md:h-20 px-4 py-2"
               >
-                {brand.name}
-              </span>
+                <img
+                  src={brand.logo}
+                  alt={`Logo ${brand.name}`}
+                  className="h-full w-auto object-contain opacity-80 hover:opacity-100 transition-opacity duration-300"
+                  loading="lazy"
+                />
+              </div>
             ))}
+            <div className="flex items-center justify-center h-16 md:h-20 px-4 py-2">
+              <span className="text-base md:text-lg font-semibold text-[#1E3A5F]">
+                + outras 20 marcas selecionadas
+              </span>
+            </div>
           </div>
 
           <div className="flex items-center justify-center gap-2 text-gray-600 mb-8 md:mb-12">
@@ -85,44 +108,54 @@ function Brands() {
           </div>
         </div>
 
+        {/* Logos das Marcas - Mobile: acima da galeria */}
+        <div className="md:hidden flex flex-wrap items-center justify-center gap-4 mb-8">
+          {brands.map((brand, index) => (
+            <div 
+              key={index}
+              className="flex items-center justify-center h-14 px-3 py-2"
+            >
+              <img
+                src={brand.logo}
+                alt={`Logo ${brand.name}`}
+                className="h-full w-auto object-contain opacity-80 hover:opacity-100 transition-opacity duration-300"
+                loading="lazy"
+              />
+            </div>
+          ))}
+          <div className="flex items-center justify-center h-14 px-3 py-2">
+            <span className="text-sm font-semibold text-[#1E3A5F]">
+              + outras 20 marcas
+            </span>
+          </div>
+        </div>
+
         {/* Galeria de Projetos Realizados */}
         <div className="mb-8">
           <h3 className="text-2xl md:text-3xl font-bold text-[#1E3A5F] mb-8 text-center font-serif">
             Projetos Realizados
           </h3>
           
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-6">
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 md:gap-4 lg:gap-6">
             {projectImages.map((image) => (
               <div
                 key={image.id}
-                className="relative group cursor-pointer overflow-hidden rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:scale-105"
+                className="relative group cursor-pointer overflow-hidden rounded-lg md:rounded-xl shadow-md hover:shadow-2xl transition-all duration-300 transform hover:scale-[1.02] aspect-square"
                 onClick={() => setSelectedImage(image)}
               >
                 <img
                   src={image.src}
                   alt={image.alt}
-                  className="w-full h-48 md:h-64 object-cover transition-transform duration-300 group-hover:scale-110"
+                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
                   loading="lazy"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-                <div className="absolute bottom-0 left-0 right-0 p-4 transform translate-y-full group-hover:translate-y-0 transition-transform duration-300">
-                  <p className="text-white text-sm font-medium">Ver projeto</p>
+                <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                <div className="absolute bottom-0 left-0 right-0 p-3 md:p-4 transform translate-y-full group-hover:translate-y-0 transition-transform duration-300">
+                  <p className="text-white text-xs md:text-sm font-semibold drop-shadow-lg">Ver projeto</p>
                 </div>
               </div>
             ))}
           </div>
-        </div>
-
-        {/* Lista de Marcas - Mobile: aparece depois da galeria */}
-        <div className="md:hidden flex flex-wrap items-center justify-center gap-4 mb-8">
-          {brands.map((brand, index) => (
-            <span 
-              key={index}
-              className="text-lg font-semibold text-[#1E3A5F] px-4 py-2 border-b-2 border-[#C0392B]"
-            >
-              {brand.name}
-            </span>
-          ))}
         </div>
 
         {/* Modal para visualização ampliada */}
@@ -181,6 +214,7 @@ function Brands() {
             </div>
           </div>
         )}
+      </div>
       </div>
     </section>
   )

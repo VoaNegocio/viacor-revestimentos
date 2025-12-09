@@ -125,11 +125,28 @@ small, .text-sm {
 .btn-premium {
   position: relative;
   overflow: hidden;
-  background: linear-gradient(135deg, #C0392B 0%, #A93226 50%, #C0392B 100%);
-  background-size: 200% 100%;
+  background: linear-gradient(135deg, #C0392B 0%, #E74C3C 25%, #C0392B 50%, #A93226 75%, #C0392B 100%);
+  background-size: 300% 100%;
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 
+    0 8px 32px rgba(192, 57, 43, 0.4),
+    0 4px 16px rgba(192, 57, 43, 0.3),
+    inset 0 1px 0 rgba(255, 255, 255, 0.2),
+    inset 0 -1px 0 rgba(0, 0, 0, 0.2);
   animation: premium-pulse 3s ease-in-out infinite,
-             premium-scale 4s ease-in-out infinite;
+             premium-scale 4s ease-in-out infinite,
+             gradient-shift 8s ease infinite;
   transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  letter-spacing: 0.5px;
+}
+
+@keyframes gradient-shift {
+  0%, 100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
 }
 
 .btn-premium::before {
@@ -142,25 +159,109 @@ small, .text-sm {
   background: linear-gradient(
     90deg,
     transparent,
-    rgba(255, 255, 255, 0.3),
+    rgba(255, 255, 255, 0.4),
     transparent
   );
-  transition: left 0.5s;
+  transition: left 0.6s ease;
+}
+
+.btn-premium::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.3);
+  transform: translate(-50%, -50%);
+  transition: width 0.6s ease, height 0.6s ease;
 }
 
 .btn-premium:hover::before {
   left: 100%;
 }
 
+.btn-premium:hover::after {
+  width: 300px;
+  height: 300px;
+}
+
 .btn-premium:hover {
   animation: premium-pulse 1s ease-in-out infinite,
              premium-glow 1.5s ease-in-out infinite;
-  transform: scale(1.05) translateY(-2px);
-  box-shadow: 0 20px 40px rgba(192, 57, 43, 0.4),
-              0 0 60px rgba(192, 57, 43, 0.3),
-              0 0 100px rgba(192, 57, 43, 0.2);
+  transform: scale(1.08) translateY(-3px);
+  border-color: rgba(255, 255, 255, 0.4);
+  box-shadow: 
+    0 24px 48px rgba(192, 57, 43, 0.5),
+    0 12px 24px rgba(192, 57, 43, 0.4),
+    0 0 80px rgba(192, 57, 43, 0.3),
+    inset 0 1px 0 rgba(255, 255, 255, 0.3),
+    inset 0 -1px 0 rgba(0, 0, 0, 0.2);
 }
 
 .btn-premium:active {
-  transform: scale(0.98) translateY(0);
+  transform: scale(1.02) translateY(-1px);
+  box-shadow: 
+    0 12px 24px rgba(192, 57, 43, 0.4),
+    0 6px 12px rgba(192, 57, 43, 0.3),
+    inset 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+/* Glow Effect - Hero Title Container */
+@keyframes hero-glow {
+  0%, 100% {
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.3),
+                0 0 40px rgba(255, 255, 255, 0.2),
+                0 0 60px rgba(255, 255, 255, 0.1),
+                inset 0 0 20px rgba(255, 255, 255, 0.1);
+  }
+  50% {
+    box-shadow: 0 0 30px rgba(255, 255, 255, 0.5),
+                0 0 60px rgba(255, 255, 255, 0.3),
+                0 0 90px rgba(255, 255, 255, 0.2),
+                inset 0 0 30px rgba(255, 255, 255, 0.15);
+  }
+}
+
+.hero-title-glow {
+  animation: hero-glow 4s ease-in-out infinite;
+  position: relative;
+}
+
+.hero-title-glow::before {
+  content: '';
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  right: -2px;
+  bottom: -2px;
+  background: linear-gradient(45deg, 
+    rgba(255, 255, 255, 0.1),
+    rgba(255, 255, 255, 0.05),
+    rgba(255, 255, 255, 0.1)
+  );
+  border-radius: inherit;
+  z-index: -1;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.hero-title-glow:hover::before {
+  opacity: 1;
+}
+
+/* Scroll Horizontal - Esconder Scrollbar mas manter funcionalidade */
+.scrollbar-hide {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;  /* Chrome, Safari and Opera */
+}
+
+/* Scroll suave */
+.scrollbar-hide {
+  scroll-behavior: smooth;
 }

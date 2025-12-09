@@ -11,8 +11,22 @@ function Benefits() {
   ]
 
   return (
-    <section id="beneficios" className="py-16 md:py-24 px-4 bg-white">
-      <div className="max-w-7xl mx-auto">
+    <section id="beneficios" className="py-16 md:py-24 px-4 relative overflow-hidden">
+      {/* Background Premium - Branding Via Cor */}
+      <div className="absolute inset-0 bg-gradient-to-br from-gray-50 via-white to-[#1E3A5F]/5"></div>
+      {/* Padrão geométrico sutil inspirado nos mosaicos */}
+      <div 
+        className="absolute inset-0 opacity-[0.03]"
+        style={{
+          backgroundImage: `
+            repeating-linear-gradient(45deg, transparent, transparent 10px, #1E3A5F 10px, #1E3A5F 20px),
+            repeating-linear-gradient(-45deg, transparent, transparent 10px, #C0392B 10px, #C0392B 20px)
+          `,
+          backgroundSize: '40px 40px'
+        }}
+      ></div>
+      <div className="relative z-10">
+        <div className="max-w-7xl mx-auto">
         <div className="text-center mb-12 md:mb-16">
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-6 font-serif">
             Ambientes com identidade, sofisticação e acabamento impecável
@@ -41,6 +55,7 @@ function Benefits() {
               Carrossel com fotos do showroom e ambientações
             </p>
           </div>
+        </div>
         </div>
       </div>
     </section>
