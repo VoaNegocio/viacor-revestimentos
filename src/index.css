@@ -265,3 +265,54 @@ small, .text-sm {
 .scrollbar-hide {
   scroll-behavior: smooth;
 }
+
+/* Carrossel Automático Infinito - Logos das Marcas */
+@keyframes scroll-infinite {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-scroll-infinite {
+  animation: scroll-infinite 20s linear infinite;
+  display: flex;
+  width: max-content;
+}
+
+.animate-scroll-infinite:hover {
+  animation-play-state: paused;
+}
+
+/* Botão WhatsApp Premium */
+.whatsapp-btn-premium {
+  filter: drop-shadow(0 4px 12px rgba(37, 211, 102, 0.4));
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.whatsapp-btn-premium:hover {
+  filter: drop-shadow(0 8px 24px rgba(37, 211, 102, 0.6));
+  transform: translateY(-2px);
+}
+
+.whatsapp-btn-premium:active {
+  transform: translateY(0) scale(0.95);
+}
+
+/* Animação de pulse para o botão WhatsApp */
+@keyframes whatsapp-pulse {
+  0%, 100% {
+    box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7),
+                0 0 0 0 rgba(37, 211, 102, 0.4);
+  }
+  50% {
+    box-shadow: 0 0 0 10px rgba(37, 211, 102, 0),
+                0 0 0 20px rgba(37, 211, 102, 0);
+  }
+}
+
+.whatsapp-btn-premium > div > div:first-child {
+  animation: whatsapp-pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}

@@ -144,25 +144,47 @@ function Brands() {
           </div>
         </div>
 
-        {/* Logos das Marcas - Mobile: acima da galeria */}
-        <div className="md:hidden flex flex-wrap items-center justify-center gap-4 mb-8">
-          {brands.map((brand, index) => (
-            <div 
-              key={index}
-              className="flex items-center justify-center h-14 px-3 py-2"
-            >
-              <img
-                src={brand.logo}
-                alt={`Logo ${brand.name}`}
-                className="h-full w-auto object-contain opacity-80 hover:opacity-100 transition-opacity duration-300"
-                loading="lazy"
-              />
+        {/* Logos das Marcas - Mobile: Carrossel Automático em Loop */}
+        <div className="md:hidden mb-8 overflow-hidden">
+          <div className="flex gap-6 animate-scroll-infinite">
+            {/* Primeira cópia */}
+            {brands.map((brand, index) => (
+              <div 
+                key={`brand-1-${index}`}
+                className="flex items-center justify-center h-14 px-3 py-2 flex-shrink-0"
+              >
+                <img
+                  src={brand.logo}
+                  alt={`Logo ${brand.name}`}
+                  className="h-full w-auto object-contain opacity-80 hover:opacity-100 transition-opacity duration-300"
+                  loading="lazy"
+                />
+              </div>
+            ))}
+            <div className="flex items-center justify-center h-14 px-3 py-2 flex-shrink-0">
+              <span className="text-sm font-semibold text-[#1E3A5F] whitespace-nowrap">
+                + outras 20 marcas
+              </span>
             </div>
-          ))}
-          <div className="flex items-center justify-center h-14 px-3 py-2">
-            <span className="text-sm font-semibold text-[#1E3A5F]">
-              + outras 20 marcas
-            </span>
+            {/* Segunda cópia para loop infinito */}
+            {brands.map((brand, index) => (
+              <div 
+                key={`brand-2-${index}`}
+                className="flex items-center justify-center h-14 px-3 py-2 flex-shrink-0"
+              >
+                <img
+                  src={brand.logo}
+                  alt={`Logo ${brand.name}`}
+                  className="h-full w-auto object-contain opacity-80 hover:opacity-100 transition-opacity duration-300"
+                  loading="lazy"
+                />
+              </div>
+            ))}
+            <div className="flex items-center justify-center h-14 px-3 py-2 flex-shrink-0">
+              <span className="text-sm font-semibold text-[#1E3A5F] whitespace-nowrap">
+                + outras 20 marcas
+              </span>
+            </div>
           </div>
         </div>
 
