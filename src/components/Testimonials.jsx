@@ -32,19 +32,21 @@ function Testimonials() {
     },
     {
       id: 4,
-      name: 'Carlos Eduardo',
-      location: 'Granja Julieta, São Paulo',
+      name: 'Monica Estellita',
+      location: 'São Paulo',
       rating: 5,
-      text: 'O showroom de 450m² é realmente sensorial! Conseguimos ver e tocar todos os materiais antes de decidir. A variedade de porcelanatos nacionais e importados é impressionante. Excelência em cada detalhe.',
-      project: 'Residencial - 320m²'
+      text: 'Segunda obra que faço é claro que na Via Cor , um time especializado que nos dá todo suporte e produtos de alta qualidade! Sem dor de cabeça!! Sem dúvidas minha botique favorita!!!',
+      project: 'Cliente Via Cor',
+      avatar: '/avatars/monica-estellita-img-avatar1.png'
     },
     {
       id: 5,
-      name: 'Juliana Santos',
-      location: 'Vila Olímpia, São Paulo',
+      name: 'Fernanda Cardoso',
+      location: 'São Paulo',
       rating: 5,
-      text: 'A Via Cor transformou nosso projeto em algo único. A combinação de pisos vinílicos, pedras naturais e porcelanatos criou ambientes com personalidade e sofisticação. Profissionais experientes e atenciosos.',
-      project: 'Residencial - 380m²'
+      text: 'Atendimento excepcional e material de excelentíssima qualidade 🫶🏼',
+      project: 'Cliente Via Cor',
+      avatar: '/avatars/fernanda-cardoso-img-avatar1.png'
     }
   ]
 
