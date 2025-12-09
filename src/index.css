@@ -1,0 +1,166 @@
+@import "tailwindcss";
+
+/* Via Cor Revestimentos - Paleta de Cores da Marca */
+:root {
+  /* Azul Marinho (Deep Indigo) - Cor principal "VIA" */
+  --viacor-blue: #1E3A5F;
+  --viacor-blue-dark: #152238;
+  --viacor-blue-light: #2C3E50;
+  
+  /* Vermelho Terracota - Cor "Cor" */
+  --viacor-red: #C0392B;
+  --viacor-red-dark: #A93226;
+  --viacor-red-light: #E74C3C;
+  
+  /* Gradiente de Azuis (Ciano/Celeste) - Mosaicos */
+  --viacor-cyan: #3498DB;
+  --viacor-cyan-light: #5DADE2;
+  --viacor-cyan-lighter: #85C1E9;
+}
+
+/* Tipografia - Via Cor Revestimentos (Opção 1: Playfair Display + Inter) */
+
+/* Corpo de Texto - Inter (reflete o "VIA" - estrutura, confiança) */
+body {
+  font-family: 'Inter', sans-serif;
+  font-size: 1rem;
+  line-height: 1.6;
+  color: #374151;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Títulos - Playfair Display (reflete o "Cor" - elegância, decoração) */
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Playfair Display', serif;
+  font-weight: 700;
+  line-height: 1.2;
+  color: #1E3A5F;
+  letter-spacing: -0.01em;
+}
+
+/* Subtítulos - Peso médio para hierarquia */
+h2 {
+  font-weight: 600;
+}
+
+h3, h4 {
+  font-weight: 600;
+}
+
+/* Destaques em itálico (reflete o "Cor" do logo) */
+em, .italic, i {
+  font-style: italic;
+  font-family: 'Playfair Display', serif;
+}
+
+/* Parágrafos e textos */
+p {
+  font-family: 'Inter', sans-serif;
+  line-height: 1.7;
+}
+
+/* Links */
+a {
+  font-family: 'Inter', sans-serif;
+  transition: color 0.2s ease;
+}
+
+/* Botões e CTAs */
+button, .btn, [role="button"] {
+  font-family: 'Inter', sans-serif;
+  font-weight: 600;
+  letter-spacing: 0.025em;
+}
+
+/* Labels e textos pequenos */
+small, .text-sm {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.875rem;
+  line-height: 1.5;
+}
+
+/* Animações Premium - Botão CTA */
+@keyframes premium-pulse {
+  0%, 100% {
+    box-shadow: 0 0 20px rgba(192, 57, 43, 0.4),
+                0 0 40px rgba(192, 57, 43, 0.2),
+                0 0 60px rgba(192, 57, 43, 0.1);
+  }
+  50% {
+    box-shadow: 0 0 30px rgba(192, 57, 43, 0.6),
+                0 0 60px rgba(192, 57, 43, 0.3),
+                0 0 90px rgba(192, 57, 43, 0.15);
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -1000% 0;
+  }
+  100% {
+    background-position: 1000% 0;
+  }
+}
+
+@keyframes premium-glow {
+  0%, 100% {
+    filter: brightness(1);
+  }
+  50% {
+    filter: brightness(1.15);
+  }
+}
+
+@keyframes premium-scale {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.02);
+  }
+}
+
+/* Botão CTA Premium */
+.btn-premium {
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(135deg, #C0392B 0%, #A93226 50%, #C0392B 100%);
+  background-size: 200% 100%;
+  animation: premium-pulse 3s ease-in-out infinite,
+             premium-scale 4s ease-in-out infinite;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.btn-premium::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.3),
+    transparent
+  );
+  transition: left 0.5s;
+}
+
+.btn-premium:hover::before {
+  left: 100%;
+}
+
+.btn-premium:hover {
+  animation: premium-pulse 1s ease-in-out infinite,
+             premium-glow 1.5s ease-in-out infinite;
+  transform: scale(1.05) translateY(-2px);
+  box-shadow: 0 20px 40px rgba(192, 57, 43, 0.4),
+              0 0 60px rgba(192, 57, 43, 0.3),
+              0 0 100px rgba(192, 57, 43, 0.2);
+}
+
+.btn-premium:active {
+  transform: scale(0.98) translateY(0);
+}
