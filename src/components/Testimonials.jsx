@@ -1,36 +1,56 @@
 import { useState, useEffect, useRef } from 'react'
-import { FaTimes, FaChevronLeft, FaChevronRight } from 'react-icons/fa'
+import { FaStar } from 'react-icons/fa'
 
 function Testimonials() {
-  const reviews = [
-    { id: 1, src: '/fotos/review1-viacor.png', alt: 'Depoimento Google Review 1' },
-    { id: 2, src: '/fotos/review2-viacor.png', alt: 'Depoimento Google Review 2' },
-    { id: 3, src: '/fotos/review3-viacor.png', alt: 'Depoimento Google Review 3' },
-    { id: 4, src: '/fotos/review4-viacor.png', alt: 'Depoimento Google Review 4' }
+  const testimonials = [
+    {
+      id: 1,
+      name: 'Claudia Pereto',
+      location: 'São Paulo',
+      rating: 5,
+      text: 'Ótimo atendimento, diversidade de materiais com preços e condições de pagamento boa, entrega pontual.',
+      project: 'Cliente Via Cor',
+      avatar: '/avatars/claudiapereto-img-avatar1.png'
+    },
+    {
+      id: 2,
+      name: 'Sayuri Fukuoka',
+      location: 'São Paulo',
+      rating: 5,
+      text: 'Atenciosos e prestativos. Oferecem boas condições de pagamento, entregam no prazo e o pós venda é realmente acima da média. Recomendo muito!',
+      project: 'Cliente Via Cor',
+      avatar: '/avatars/sayuri-fukuoka-img-avatar1.png'
+    },
+    {
+      id: 3,
+      name: 'Elcio Nogueira',
+      location: 'São Paulo',
+      rating: 5,
+      text: 'Esta já é a terceira compra com a Via Cor, e SEMPRE um excelente atendimento ! O custo benefício tambem é muito vantajoso! Pessoas muito prestativas e compreensivas. Recomendo muito!',
+      project: 'Cliente Via Cor',
+      avatar: '/avatars/elcio-nogueira-img-avatar1.png'
+    },
+    {
+      id: 4,
+      name: 'Carlos Eduardo',
+      location: 'Granja Julieta, São Paulo',
+      rating: 5,
+      text: 'O showroom de 450m² é realmente sensorial! Conseguimos ver e tocar todos os materiais antes de decidir. A variedade de porcelanatos nacionais e importados é impressionante. Excelência em cada detalhe.',
+      project: 'Residencial - 320m²'
+    },
+    {
+      id: 5,
+      name: 'Juliana Santos',
+      location: 'Vila Olímpia, São Paulo',
+      rating: 5,
+      text: 'A Via Cor transformou nosso projeto em algo único. A combinação de pisos vinílicos, pedras naturais e porcelanatos criou ambientes com personalidade e sofisticação. Profissionais experientes e atenciosos.',
+      project: 'Residencial - 380m²'
+    }
   ]
 
-  const [selectedReview, setSelectedReview] = useState(null)
   const [activeIndex, setActiveIndex] = useState(0)
   const scrollContainerRef = useRef(null)
   const cardRefs = useRef([])
-
-  const currentIndex = selectedReview ? reviews.findIndex(review => review.id === selectedReview.id) : -1
-
-  const nextReview = () => {
-    if (currentIndex < reviews.length - 1) {
-      setSelectedReview(reviews[currentIndex + 1])
-    } else {
-      setSelectedReview(reviews[0])
-    }
-  }
-
-  const prevReview = () => {
-    if (currentIndex > 0) {
-      setSelectedReview(reviews[currentIndex - 1])
-    } else {
-      setSelectedReview(reviews[reviews.length - 1])
-    }
-  }
 
   // Função para scrollar para um card específico
   const scrollToCard = (index) => {
@@ -93,7 +113,6 @@ function Testimonials() {
     }
 
     const observerCallback = (entries) => {
-      // Encontrar o card com maior interseção
       let maxIntersection = 0
       let maxIndex = 0
 
@@ -126,57 +145,111 @@ function Testimonials() {
     }
   }, [])
 
-  // Fechar modal com ESC e bloquear scroll
-  useEffect(() => {
-    const handleEscape = (e) => {
-      if (e.key === 'Escape' && selectedReview) {
-        setSelectedReview(null)
-      }
-    }
-    
-    if (selectedReview) {
-      document.addEventListener('keydown', handleEscape)
-      document.body.style.overflow = 'hidden'
-    }
-    
-    return () => {
-      document.removeEventListener('keydown', handleEscape)
-      document.body.style.overflow = 'unset'
-    }
-  }, [selectedReview])
+  // Função para obter iniciais do nome
+  const getInitials = (name) => {
+    return name
+      .split(' ')
+      .map(n => n[0])
+      .join('')
+      .toUpperCase()
+      .slice(0, 2)
+  }
 
   return (
-    <section id="depoimentos" className="py-16 md:py-24 px-4 bg-[#1E3A5F]">
-      <div className="max-w-7xl mx-auto">
+    <section id="depoimentos" className="py-16 md:py-24 px-4 bg-[#1E3A5F] relative overflow-hidden">
+      {/* Background Premium */}
+      <div className="absolute inset-0 bg-gradient-to-br from-[#1E3A5F] via-[#1E3A5F] to-[#1E3A5F]/95"></div>
+      
+      {/* Padrão geométrico sutil */}
+      <div 
+        className="absolute inset-0 opacity-[0.03]"
+        style={{
+          backgroundImage: `
+            repeating-linear-gradient(45deg, transparent, transparent 20px, rgba(255,255,255,0.05) 20px, rgba(255,255,255,0.05) 40px),
+            repeating-linear-gradient(-45deg, transparent, transparent 20px, rgba(255,255,255,0.05) 20px, rgba(255,255,255,0.05) 40px)
+          `
+        }}
+      ></div>
+
+      <div className="max-w-7xl mx-auto relative z-10">
         <div className="text-center mb-12 md:mb-16">
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-6 font-serif">
             O que nossos clientes dizem
           </h2>
-          <p className="text-lg md:text-xl text-white max-w-3xl mx-auto">
+          <p className="text-lg md:text-xl text-white/90 max-w-3xl mx-auto">
             Escolher a Via Cor é ter segurança do início ao fim do projeto.
           </p>
         </div>
 
-        {/* Carrossel Horizontal de Reviews do Google */}
+        {/* Carrossel Horizontal Premium */}
         <div className="relative">
           <div 
             ref={scrollContainerRef}
             className="overflow-x-auto scrollbar-hide pb-4 -mx-4 px-4"
+            style={{ scrollSnapType: 'x mandatory' }}
           >
             <div className="flex gap-4 md:gap-6 lg:gap-8 min-w-max">
-              {reviews.map((review, index) => (
+              {testimonials.map((testimonial, index) => (
                 <div 
-                  key={review.id}
+                  key={testimonial.id}
                   ref={(el) => (cardRefs.current[index] = el)}
-                  className="bg-gray-800/60 backdrop-blur-xl border border-gray-600/40 rounded-xl p-4 md:p-6 shadow-2xl hover:shadow-gray-900/60 transition-all duration-300 overflow-hidden cursor-pointer group transform hover:scale-105 flex-shrink-0 w-[280px] md:w-[350px] lg:w-[400px]"
-                  onClick={() => setSelectedReview(review)}
+                  data-index={index}
+                  className="flex-shrink-0 w-[320px] md:w-[380px] lg:w-[420px]"
+                  style={{ scrollSnapAlign: 'center' }}
                 >
-                  <img
-                    src={review.src}
-                    alt={review.alt}
-                    className="w-full h-auto rounded-lg object-contain transition-transform duration-300 group-hover:scale-105"
-                    loading="lazy"
-                  />
+                  <div className="bg-white/10 backdrop-blur-xl border border-white/20 rounded-2xl p-6 md:p-8 shadow-2xl hover:shadow-white/10 transition-all duration-300 h-full flex flex-col group hover:scale-[1.02] hover:border-white/30">
+                    {/* Header do Card */}
+                    <div className="flex items-start gap-4 mb-4">
+                      {/* Avatar */}
+                      {testimonial.avatar ? (
+                        <div className="flex-shrink-0 w-14 h-14 rounded-full overflow-hidden border-2 border-[#C0392B]/40">
+                          <img 
+                            src={testimonial.avatar} 
+                            alt={testimonial.name}
+                            className="w-full h-full object-cover"
+                          />
+                        </div>
+                      ) : (
+                        <div className="flex-shrink-0 w-14 h-14 rounded-full bg-gradient-to-br from-[#C0392B]/30 to-[#C0392B]/20 border border-[#C0392B]/40 flex items-center justify-center text-white font-bold text-lg">
+                          {getInitials(testimonial.name)}
+                        </div>
+                      )}
+                      
+                      {/* Nome e Localização */}
+                      <div className="flex-grow">
+                        <h3 className="text-white font-semibold text-lg mb-1">
+                          {testimonial.name}
+                        </h3>
+                        <p className="text-white/70 text-sm mb-2">
+                          {testimonial.location}
+                        </p>
+                        
+                        {/* Estrelas */}
+                        <div className="flex gap-1">
+                          {[...Array(testimonial.rating)].map((_, i) => (
+                            <FaStar 
+                              key={i} 
+                              className="text-[#C0392B] text-sm" 
+                            />
+                          ))}
+                        </div>
+                      </div>
+                    </div>
+
+                    {/* Texto do Depoimento */}
+                    <div className="flex-grow mb-4">
+                      <p className="text-white/90 leading-relaxed text-base md:text-lg italic">
+                        "{testimonial.text}"
+                      </p>
+                    </div>
+
+                    {/* Projeto */}
+                    <div className="pt-4 border-t border-white/10">
+                      <p className="text-white/60 text-xs md:text-sm font-medium">
+                        {testimonial.project}
+                      </p>
+                    </div>
+                  </div>
                 </div>
               ))}
             </div>
@@ -184,77 +257,20 @@ function Testimonials() {
 
           {/* Dots de Navegação */}
           <div className="flex justify-center items-center gap-2 mt-6 md:mt-8">
-            {reviews.map((_, index) => (
+            {testimonials.map((_, index) => (
               <button
                 key={index}
                 onClick={() => scrollToCard(index)}
                 className={`transition-all duration-300 rounded-full ${
                   activeIndex === index
-                    ? 'w-8 h-3 bg-[#C0392B]'
-                    : 'w-3 h-3 bg-gray-400 hover:bg-gray-500'
+                    ? 'w-8 h-2 bg-[#C0392B]'
+                    : 'w-2 h-2 bg-white/30 hover:bg-white/50'
                 }`}
                 aria-label={`Ir para depoimento ${index + 1}`}
               />
             ))}
           </div>
         </div>
-
-        {/* Modal para visualização ampliada */}
-        {selectedReview && (
-          <div
-            className="fixed inset-0 z-50 flex items-center justify-center bg-black/80 backdrop-blur-md p-4"
-            onClick={() => setSelectedReview(null)}
-          >
-            <div
-              className="relative max-w-4xl max-h-[90vh] w-full"
-              onClick={(e) => e.stopPropagation()}
-            >
-              {/* Botão Fechar */}
-              <button
-                onClick={() => setSelectedReview(null)}
-                className="absolute -top-12 right-0 text-white text-3xl hover:text-[#C0392B] transition-colors z-10"
-                aria-label="Fechar"
-              >
-                <FaTimes />
-              </button>
-
-              {/* Botão Anterior */}
-              {reviews.length > 1 && (
-                <button
-                  onClick={(e) => {
-                    e.stopPropagation()
-                    prevReview()
-                  }}
-                  className="absolute left-4 top-1/2 -translate-y-1/2 bg-white/20 hover:bg-white/30 backdrop-blur-sm text-white text-2xl w-12 h-12 rounded-full flex items-center justify-center transition-all duration-300 z-10"
-                  aria-label="Review anterior"
-                >
-                  <FaChevronLeft />
-                </button>
-              )}
-
-              {/* Imagem do Review */}
-              <img
-                src={selectedReview.src}
-                alt={selectedReview.alt}
-                className="w-full h-auto rounded-xl shadow-2xl"
-              />
-
-              {/* Botão Próximo */}
-              {reviews.length > 1 && (
-                <button
-                  onClick={(e) => {
-                    e.stopPropagation()
-                    nextReview()
-                  }}
-                  className="absolute right-4 top-1/2 -translate-y-1/2 bg-white/20 hover:bg-white/30 backdrop-blur-sm text-white text-2xl w-12 h-12 rounded-full flex items-center justify-center transition-all duration-300 z-10"
-                  aria-label="Próximo review"
-                >
-                  <FaChevronRight />
-                </button>
-              )}
-            </div>
-          </div>
-        )}
       </div>
     </section>
   )

@@ -59,18 +59,54 @@ function Brands() {
   return (
     <section id="marcas" className="py-16 md:py-24 px-4 relative overflow-hidden">
       {/* Background Premium - Branding Via Cor */}
-      <div className="absolute inset-0 bg-gradient-to-br from-gray-50 via-white to-[#1E3A5F]/5"></div>
-      {/* Padrão geométrico sutil inspirado nos mosaicos */}
+      
+      {/* Base: Gradiente multicamada sofisticado */}
+      <div className="absolute inset-0 bg-gradient-to-br from-gray-50 via-white to-[#1E3A5F]/8"></div>
+      
+      {/* Camada 1: Gradiente diagonal premium */}
+      <div className="absolute inset-0 bg-gradient-to-br from-white via-[#1E3A5F]/3 to-transparent"></div>
+      
+      {/* Camada 2: Gradiente radial superior (efeito de luz) */}
       <div 
-        className="absolute inset-0 opacity-[0.03]"
+        className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-2/3 bg-gradient-radial from-white/50 via-white/20 to-transparent"
         style={{
-          backgroundImage: `
-            repeating-linear-gradient(45deg, transparent, transparent 10px, #1E3A5F 10px, #1E3A5F 20px),
-            repeating-linear-gradient(-45deg, transparent, transparent 10px, #C0392B 10px, #C0392B 20px)
-          `,
-          backgroundSize: '40px 40px'
+          background: 'radial-gradient(ellipse 80% 60% at 50% 0%, rgba(255,255,255,0.6) 0%, rgba(255,255,255,0.2) 30%, transparent 70%)'
         }}
       ></div>
+      
+      {/* Camada 3: Gradiente inferior sutil */}
+      <div className="absolute bottom-0 left-0 right-0 h-1/2 bg-gradient-to-t from-[#1E3A5F]/5 via-transparent to-transparent"></div>
+      
+      {/* Padrão geométrico refinado inspirado nos mosaicos - mais sutil e elegante */}
+      <div 
+        className="absolute inset-0 opacity-[0.025]"
+        style={{
+          backgroundImage: `
+            repeating-linear-gradient(45deg, transparent, transparent 25px, #1E3A5F 25px, #1E3A5F 50px),
+            repeating-linear-gradient(-45deg, transparent, transparent 25px, #C0392B 25px, #C0392B 50px)
+          `,
+          backgroundSize: '80px 80px'
+        }}
+      ></div>
+      
+      {/* Textura pontilhada sutil (inspirada em texturas de revestimentos) */}
+      <div 
+        className="absolute inset-0 opacity-[0.02]"
+        style={{
+          backgroundImage: `radial-gradient(circle at 1px 1px, #1E3A5F 0.5px, transparent 0)`,
+          backgroundSize: '32px 32px'
+        }}
+      ></div>
+      
+      {/* Efeito de brilho lateral premium */}
+      <div className="absolute left-0 top-0 bottom-0 w-1/3 bg-gradient-to-r from-[#1E3A5F]/8 via-[#1E3A5F]/3 to-transparent"></div>
+      <div className="absolute right-0 top-0 bottom-0 w-1/3 bg-gradient-to-l from-[#C0392B]/8 via-[#C0392B]/3 to-transparent"></div>
+      
+      {/* Overlay de profundidade sutil */}
+      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-white/10"></div>
+      
+      {/* Efeito de borda superior sutil */}
+      <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[#1E3A5F]/20 to-transparent"></div>
       <div className="relative z-10">
         <div className="max-w-7xl mx-auto">
         <div className="text-center mb-12 md:mb-16">

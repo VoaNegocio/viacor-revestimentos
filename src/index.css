@@ -83,14 +83,14 @@ small, .text-sm {
 /* Animações Premium - Botão CTA */
 @keyframes premium-pulse {
   0%, 100% {
-    box-shadow: 0 0 20px rgba(192, 57, 43, 0.4),
-                0 0 40px rgba(192, 57, 43, 0.2),
-                0 0 60px rgba(192, 57, 43, 0.1);
+    box-shadow: 0 0 20px rgba(16, 185, 129, 0.4),
+                0 0 40px rgba(16, 185, 129, 0.2),
+                0 0 60px rgba(16, 185, 129, 0.1);
   }
   50% {
-    box-shadow: 0 0 30px rgba(192, 57, 43, 0.6),
-                0 0 60px rgba(192, 57, 43, 0.3),
-                0 0 90px rgba(192, 57, 43, 0.15);
+    box-shadow: 0 0 30px rgba(16, 185, 129, 0.6),
+                0 0 60px rgba(16, 185, 129, 0.3),
+                0 0 90px rgba(16, 185, 129, 0.15);
   }
 }
 
@@ -125,12 +125,12 @@ small, .text-sm {
 .btn-premium {
   position: relative;
   overflow: hidden;
-  background: linear-gradient(135deg, #C0392B 0%, #E74C3C 25%, #C0392B 50%, #A93226 75%, #C0392B 100%);
+  background: linear-gradient(135deg, #10B981 0%, #34D399 25%, #10B981 50%, #059669 75%, #10B981 100%);
   background-size: 300% 100%;
   border: 2px solid rgba(255, 255, 255, 0.2);
   box-shadow: 
-    0 8px 32px rgba(192, 57, 43, 0.4),
-    0 4px 16px rgba(192, 57, 43, 0.3),
+    0 8px 32px rgba(16, 185, 129, 0.4),
+    0 4px 16px rgba(16, 185, 129, 0.3),
     inset 0 1px 0 rgba(255, 255, 255, 0.2),
     inset 0 -1px 0 rgba(0, 0, 0, 0.2);
   animation: premium-pulse 3s ease-in-out infinite,
@@ -193,9 +193,9 @@ small, .text-sm {
   transform: scale(1.08) translateY(-3px);
   border-color: rgba(255, 255, 255, 0.4);
   box-shadow: 
-    0 24px 48px rgba(192, 57, 43, 0.5),
-    0 12px 24px rgba(192, 57, 43, 0.4),
-    0 0 80px rgba(192, 57, 43, 0.3),
+    0 24px 48px rgba(16, 185, 129, 0.5),
+    0 12px 24px rgba(16, 185, 129, 0.4),
+    0 0 80px rgba(16, 185, 129, 0.3),
     inset 0 1px 0 rgba(255, 255, 255, 0.3),
     inset 0 -1px 0 rgba(0, 0, 0, 0.2);
 }
@@ -203,8 +203,8 @@ small, .text-sm {
 .btn-premium:active {
   transform: scale(1.02) translateY(-1px);
   box-shadow: 
-    0 12px 24px rgba(192, 57, 43, 0.4),
-    0 6px 12px rgba(192, 57, 43, 0.3),
+    0 12px 24px rgba(16, 185, 129, 0.4),
+    0 6px 12px rgba(16, 185, 129, 0.3),
     inset 0 2px 4px rgba(0, 0, 0, 0.2);
 }
 
