@@ -18,7 +18,7 @@ function Hero() {
 
 
       {/* --- LOGO CENTRAL NO TOPO (VERSÃO MINIMALISTA PREMIUM) --- */}
-      <div className="absolute top-6 md:top-16 left-1/2 -translate-x-1/2 z-20 w-full max-w-7xl px-4 md:px-8 lg:px-12 pointer-events-none">
+      <div className="absolute top-[54px] md:top-[94px] left-1/2 -translate-x-1/2 z-20 w-full max-w-7xl px-4 md:px-8 lg:px-12 pointer-events-none">
         <div className="flex justify-center">
           <div className="relative group pointer-events-auto">
             
@@ -31,7 +31,7 @@ function Hero() {
               <img 
                 src="/viacor-logo-instagram .jpg" 
                 alt="Via Cor Revestimentos" 
-                className="h-14 md:h-12 lg:h-14 object-contain drop-shadow-sm filter brightness-105"
+                className="h-[86px] md:h-[78px] lg:h-[86px] object-contain drop-shadow-sm filter brightness-105"
               />
             </div>
 
@@ -44,13 +44,6 @@ function Hero() {
       <div className="relative z-10 max-w-7xl mx-auto w-full px-4 md:px-8 lg:px-12 flex flex-col justify-center h-full pt-24 md:pt-20">
         <div className="max-w-4xl mx-auto md:mx-0 text-center md:text-left">
           
-          {/* LOGO MOBILE BADGE (Mantido) */}
-          <div className="md:hidden flex justify-center mb-8 animate-fade-in-up">
-            <div className="bg-white/10 backdrop-blur-md border border-white/20 rounded-full px-6 py-3 shadow-2xl">
-              <span className="text-white font-serif tracking-widest text-sm uppercase">Via Cor Revestimentos</span>
-            </div>
-          </div>
-
           {/* Título Principal (Verde Esmeralda) */}
           <div className="hero-fade-in-up-delay-1 mb-8 md:mb-10 relative inline-block text-left animate-fade-in-up">
             <div className="absolute -inset-1 bg-gradient-to-r from-[#1E3A5F] to-[#10B981] opacity-30 blur-xl rounded-tr-3xl rounded-br-3xl -z-10"></div>
