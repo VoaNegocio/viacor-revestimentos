@@ -159,23 +159,72 @@ function Testimonials() {
 
   return (
     <section id="depoimentos" className="py-16 md:py-24 px-4 bg-[#1E3A5F] relative overflow-hidden">
-      {/* Background Premium */}
-      <div className="absolute inset-0 bg-gradient-to-br from-[#1E3A5F] via-[#1E3A5F] to-[#1E3A5F]/95"></div>
+      {/* Background Premium - Múltiplas Camadas */}
       
-      {/* Padrão geométrico sutil */}
+      {/* Base Gradient - Profundidade */}
+      <div className="absolute inset-0 bg-gradient-to-br from-[#1E3A5F] via-[#1E3A5F] to-[#152238]"></div>
+      
+      {/* Gradiente Radial Superior - Iluminação */}
+      <div 
+        className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-2/3"
+        style={{
+          background: 'radial-gradient(ellipse 100% 80% at 50% 0%, rgba(255,255,255,0.08) 0%, rgba(255,255,255,0.03) 40%, transparent 70%)'
+        }}
+      ></div>
+      
+      {/* Gradiente Inferior - Profundidade */}
+      <div className="absolute bottom-0 left-0 right-0 h-1/2 bg-gradient-to-t from-[#0F1A2E] via-transparent to-transparent"></div>
+      
+      {/* Gradientes Laterais - Dimensão */}
+      <div className="absolute left-0 top-0 bottom-0 w-1/3 bg-gradient-to-r from-[#1E3A5F] via-[#1E3A5F]/80 to-transparent"></div>
+      <div className="absolute right-0 top-0 bottom-0 w-1/3 bg-gradient-to-l from-[#1E3A5F] via-[#1E3A5F]/80 to-transparent"></div>
+      
+      {/* Padrão Geométrico Diagonal - Premium */}
+      <div 
+        className="absolute inset-0 opacity-[0.04]"
+        style={{
+          backgroundImage: `
+            repeating-linear-gradient(45deg, transparent, transparent 30px, rgba(255,255,255,0.1) 30px, rgba(255,255,255,0.1) 60px),
+            repeating-linear-gradient(-45deg, transparent, transparent 30px, rgba(255,255,255,0.08) 30px, rgba(255,255,255,0.08) 60px)
+          `,
+          backgroundSize: '120px 120px'
+        }}
+      ></div>
+      
+      {/* Padrão de Pontos - Textura Sutil */}
       <div 
         className="absolute inset-0 opacity-[0.03]"
         style={{
-          backgroundImage: `
-            repeating-linear-gradient(45deg, transparent, transparent 20px, rgba(255,255,255,0.05) 20px, rgba(255,255,255,0.05) 40px),
-            repeating-linear-gradient(-45deg, transparent, transparent 20px, rgba(255,255,255,0.05) 20px, rgba(255,255,255,0.05) 40px)
-          `
+          backgroundImage: `radial-gradient(circle at 2px 2px, rgba(255,255,255,0.15) 1px, transparent 0)`,
+          backgroundSize: '40px 40px'
+        }}
+      ></div>
+      
+      {/* Overlay de Brilho Sutil */}
+      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-[#1E3A5F]/20"></div>
+      
+      {/* Borda Superior Sutil */}
+      <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-white/10 to-transparent"></div>
+      
+      {/* Efeito de Luz Lateral Esquerda */}
+      <div 
+        className="absolute left-0 top-1/2 -translate-y-1/2 w-1/4 h-1/2"
+        style={{
+          background: 'radial-gradient(ellipse 100% 100% at 0% 50%, rgba(255,255,255,0.05) 0%, transparent 70%)'
+        }}
+      ></div>
+      
+      {/* Efeito de Luz Lateral Direita */}
+      <div 
+        className="absolute right-0 top-1/2 -translate-y-1/2 w-1/4 h-1/2"
+        style={{
+          background: 'radial-gradient(ellipse 100% 100% at 100% 50%, rgba(255,255,255,0.05) 0%, transparent 70%)'
         }}
       ></div>
 
       <div className="max-w-7xl mx-auto relative z-10">
         <div className="text-center mb-12 md:mb-16">
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-6 font-serif">
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold !text-white mb-6 font-serif">
             O que nossos clientes dizem
           </h2>
           <p className="text-lg md:text-xl text-white/90 max-w-3xl mx-auto">
@@ -219,7 +268,7 @@ function Testimonials() {
                       
                       {/* Nome e Localização */}
                       <div className="flex-grow">
-                        <h3 className="text-white font-semibold text-lg mb-1">
+                        <h3 className="!text-white font-semibold text-lg mb-1">
                           {testimonial.name}
                         </h3>
                         <p className="text-white/70 text-sm mb-2">

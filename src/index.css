@@ -316,3 +316,93 @@ small, .text-sm {
 .whatsapp-btn-premium > div > div:first-child {
   animation: whatsapp-pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
 }
+
+/* Animações de Entrada - Hero Mobile Premium */
+@keyframes fade-in-up {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.hero-fade-in-up {
+  animation: fade-in-up 0.8s ease-out forwards;
+  opacity: 0;
+}
+
+.hero-fade-in-up-delay-1 {
+  animation: fade-in-up 0.8s ease-out 0.1s forwards;
+  opacity: 0;
+}
+
+.hero-fade-in-up-delay-2 {
+  animation: fade-in-up 0.8s ease-out 0.2s forwards;
+  opacity: 0;
+}
+
+.hero-fade-in-up-delay-3 {
+  animation: fade-in-up 0.8s ease-out 0.3s forwards;
+  opacity: 0;
+}
+
+.hero-fade-in-up-delay-4 {
+  animation: fade-in-up 0.8s ease-out 0.4s forwards;
+  opacity: 0;
+}
+
+/* Logo Mobile Premium - Glow e Pulse */
+@keyframes logo-glow-pulse {
+  0%, 100% {
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.4),
+                0 0 40px rgba(255, 255, 255, 0.2),
+                0 0 60px rgba(255, 255, 255, 0.1),
+                inset 0 0 20px rgba(255, 255, 255, 0.1);
+  }
+  50% {
+    box-shadow: 0 0 30px rgba(255, 255, 255, 0.6),
+                0 0 60px rgba(255, 255, 255, 0.3),
+                0 0 90px rgba(255, 255, 255, 0.15),
+                inset 0 0 30px rgba(255, 255, 255, 0.15);
+  }
+}
+
+.hero-logo-premium {
+  animation: logo-glow-pulse 3s ease-in-out infinite;
+  position: relative;
+}
+
+/* Badge Location Premium - Glow Sutil */
+@keyframes badge-glow {
+  0%, 100% {
+    box-shadow: 0 4px 20px rgba(255, 255, 255, 0.2),
+                0 0 40px rgba(255, 255, 255, 0.1);
+  }
+  50% {
+    box-shadow: 0 6px 30px rgba(255, 255, 255, 0.3),
+                0 0 60px rgba(255, 255, 255, 0.15);
+  }
+}
+
+.hero-badge-premium {
+  animation: badge-glow 4s ease-in-out infinite;
+}
+
+/* Location Icon Pulse */
+@keyframes location-pulse {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1.1);
+    opacity: 0.9;
+  }
+}
+
+.hero-location-icon {
+  animation: location-pulse 2s ease-in-out infinite;
+}
