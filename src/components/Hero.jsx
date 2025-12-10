@@ -2,81 +2,106 @@ import { HiLocationMarker } from 'react-icons/hi'
 
 function Hero() {
   return (
-    <section className="relative min-h-screen flex items-center overflow-hidden">
-      {/* Background Image */}
-      <div 
-        className="absolute inset-0 z-0"
-        style={{
-          backgroundImage: 'url(/fotos/img1.jpg)',
-          backgroundSize: 'cover',
-          backgroundPosition: 'center',
-          backgroundRepeat: 'no-repeat'
-        }}
-      >
-        {/* Overlay Premium - Gradiente Radial para Mobile */}
+    <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
+      
+      {/* --- BACKGROUND CINEMATOGRÁFICO --- */}
+      <div className="absolute inset-0 z-0 overflow-hidden">
         <div 
-          className="absolute inset-0 md:hidden"
+          className="absolute inset-0 bg-cover bg-center transition-transform duration-[20s] ease-linear transform scale-100 hover:scale-110 animate-subtle-zoom"
           style={{
-            background: 'radial-gradient(ellipse 100% 80% at 50% 50%, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0.5) 50%, rgba(0,0,0,0.7) 100%)'
+            backgroundImage: 'url(/fotos/img1.jpg)',
           }}
         ></div>
-        <div className="hidden md:block absolute inset-0 bg-black/40"></div>
       </div>
+      <div className="absolute inset-0 z-[1] bg-black/20 pointer-events-none"></div>
+      <div className="absolute inset-0 z-[2] bg-gradient-to-b from-black/60 via-black/20 to-black/80 md:from-black/70 md:via-transparent md:to-black/90"></div>
 
-      {/* Content */}
-      <div className="relative z-10 max-w-7xl mx-auto w-full px-4 md:px-8 lg:px-12 py-12 md:py-20">
-        <div className="max-w-2xl">
-          
-          {/* Logo - Apenas Mobile - Premium com Glow */}
-          <div className="md:hidden flex justify-center mb-8 hero-fade-in-up">
-            <div className="hero-logo-premium bg-white/30 backdrop-blur-xl border border-white/40 rounded-xl p-3 shadow-2xl">
+
+      {/* --- LOGO CENTRAL NO TOPO (VERSÃO MINIMALISTA PREMIUM) --- */}
+      <div className="absolute top-6 md:top-16 left-1/2 -translate-x-1/2 z-20 w-full max-w-7xl px-4 md:px-8 lg:px-12 pointer-events-none">
+        <div className="flex justify-center">
+          <div className="relative group pointer-events-auto">
+            
+            {/* NOVO: Glow Branco Sutil (Substitui o verde) */}
+            <div className="absolute -inset-2 bg-white opacity-10 blur-xl rounded-xl group-hover:opacity-25 transition-opacity duration-500"></div>
+            
+            {/* A Caixa de Vidro Premium (Bem mais justa e minimalista) */}
+            {/* Padding reduzido para px-3 py-2 (quase colando) */}
+            <div className="relative bg-white/5 backdrop-blur-md border border-white/10 rounded-xl px-3 py-2 md:px-4 md:py-3 shadow-xl transform transition-all duration-500 hover:scale-105 hover:bg-white/10 hover:border-white/20 hover:shadow-white/10">
               <img 
                 src="/viacor-logo-instagram .jpg" 
                 alt="Via Cor Revestimentos" 
-                className="h-16 object-contain drop-shadow-2xl"
+                className="h-8 md:h-12 lg:h-14 object-contain drop-shadow-sm filter brightness-105"
               />
             </div>
-          </div>
 
-          {/* Glassmorphism Container para o Título - Premium Mobile */}
-          <div className="hero-title-glow bg-white/30 backdrop-blur-xl border border-white/40 rounded-2xl p-6 md:p-8 mb-8 md:mb-6 shadow-2xl hero-fade-in-up-delay-1 md:bg-white/25 md:backdrop-blur-lg md:border-white/30">
-            <div className="absolute inset-0 bg-black/10 rounded-2xl md:hidden"></div>
-            <h1 className="relative text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight drop-shadow-2xl font-serif">
-              Revestimentos de alto padrão para projetos exigentes
-            </h1>
-          </div>
-          
-          {/* Texto Descritivo - Glassmorphism Leve no Mobile */}
-          <p className="text-lg md:text-xl lg:text-2xl text-white mb-8 md:mb-8 leading-relaxed drop-shadow-lg font-sans font-semibold hero-fade-in-up-delay-2 md:drop-shadow-lg">
-            <span className="md:hidden bg-white/10 backdrop-blur-md border border-white/20 rounded-xl px-4 py-3 inline-block">
-              Um showroom sensorial de <strong className="text-white">450 m²</strong> com curadoria especializada, marcas exclusivas e atendimento consultivo para transformar ideias em ambientes únicos.
-            </span>
-            <span className="hidden md:inline">
-              Um showroom sensorial de <strong className="text-white">450 m²</strong> com curadoria especializada, marcas exclusivas e atendimento consultivo para transformar ideias em ambientes únicos.
-            </span>
-          </p>
-
-          {/* Badge de Localização - Premium com Glow */}
-          <div className="flex justify-start mb-8 hero-fade-in-up-delay-3">
-            <div className="hero-badge-premium bg-white/25 backdrop-blur-xl border border-white/35 rounded-full px-4 py-2 md:px-6 md:py-3 shadow-xl inline-flex items-center gap-2 md:bg-white/20 md:backdrop-blur-lg md:border-white/30 md:shadow-lg">
-              <HiLocationMarker className="hero-location-icon text-lg md:text-xl text-white drop-shadow-lg flex-shrink-0" />
-              <span className="text-sm md:text-base text-white font-medium drop-shadow-md whitespace-nowrap">
-                Zona Sul de São Paulo | Estacionamento no local
-              </span>
-            </div>
-          </div>
-
-          {/* Botão CTA */}
-          <div className="flex justify-center hero-fade-in-up-delay-4">
-            <a 
-              href="#contato"
-              className="btn-premium inline-block text-white px-8 py-4 rounded-lg font-semibold text-lg relative z-10"
-            >
-              <span className="relative z-10">Agendar Visita ao Showroom</span>
-            </a>
           </div>
         </div>
       </div>
+
+
+      {/* --- CONTEÚDO EDITORIAL --- */}
+      <div className="relative z-10 max-w-7xl mx-auto w-full px-4 md:px-8 lg:px-12 flex flex-col justify-center h-full pt-24 md:pt-20">
+        <div className="max-w-4xl mx-auto md:mx-0 text-center md:text-left">
+          
+          {/* LOGO MOBILE BADGE (Mantido) */}
+          <div className="md:hidden flex justify-center mb-8 animate-fade-in-up">
+            <div className="bg-white/10 backdrop-blur-md border border-white/20 rounded-full px-6 py-3 shadow-2xl">
+              <span className="text-white font-serif tracking-widest text-sm uppercase">Via Cor Revestimentos</span>
+            </div>
+          </div>
+
+          {/* Título Principal (Verde Esmeralda) */}
+          <div className="hero-fade-in-up-delay-1 mb-8 md:mb-10 relative inline-block text-left animate-fade-in-up">
+            <div className="absolute -inset-1 bg-gradient-to-r from-[#1E3A5F] to-[#10B981] opacity-30 blur-xl rounded-tr-3xl rounded-br-3xl -z-10"></div>
+            <div className="bg-[#1E3A5F]/90 backdrop-blur-xl p-6 md:p-10 lg:p-12 rounded-tr-[40px] border-l-[6px] border-[#10B981] shadow-2xl">
+              <h1 className="text-4xl md:text-5xl lg:text-7xl font-bold !text-white leading-[1.1] font-serif">
+                Revestimentos de <br className="hidden lg:block"/>
+                <span className="relative inline-block">
+                  <span className="italic font-light text-white/90 relative z-10">alto padrão</span>
+                  <span className="absolute bottom-2 left-0 w-full h-[6px] bg-[#10B981]/60 -z-0 skew-x-12"></span>
+                </span>{' '}
+                para projetos exigentes
+              </h1>
+            </div>
+          </div>
+          
+          {/* Subtítulo */}
+          <p className="hero-fade-in-up-delay-2 text-lg md:text-xl text-white/90 mb-10 leading-relaxed font-light max-w-2xl mx-auto md:mx-0 drop-shadow-md">
+            Um showroom sensorial de <strong className="text-white font-semibold">450 m²</strong> com curadoria especializada e atendimento consultivo para transformar sua visão em realidade.
+          </p>
+
+          {/* Badge de Localização & CTA */}
+          <div className="hero-fade-in-up-delay-3 flex flex-col md:flex-row items-center md:items-start gap-6">
+            
+            {/* Botão Verde Premium */}
+            <a 
+              href="#contato" 
+              className="group relative inline-flex items-center justify-center px-8 py-4 overflow-hidden font-semibold text-white transition-all duration-300 rounded-lg shadow-lg hover:shadow-emerald-500/40 hover:-translate-y-1"
+            >
+              <span className="absolute inset-0 w-full h-full bg-gradient-to-br from-[#059669] via-[#10B981] to-[#34D399] group-hover:bg-gradient-to-br group-hover:from-[#047857] group-hover:via-[#059669] group-hover:to-[#10B981] transition-all duration-300"></span>
+              <span className="absolute inset-0 w-full h-full bg-gradient-to-r from-transparent via-white/40 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000 ease-in-out"></span>
+              <span className="absolute inset-0 rounded-lg border border-white/20 group-hover:border-white/40 transition-colors"></span>
+              <span className="relative z-10 tracking-wide drop-shadow-md">Agendar Visita</span>
+            </a>
+
+            <div className="flex items-center gap-3 text-white/90 bg-black/40 backdrop-blur-sm px-5 py-3 rounded-lg border border-white/10 shadow-lg">
+              <HiLocationMarker className="text-[#10B981] text-xl animate-bounce" />
+              <span className="text-sm font-medium">Zona Sul de SP <span className="mx-2 opacity-50">|</span> Estacionamento Próprio</span>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      {/* --- SCROLL INDICATOR --- */}
+      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 z-20 flex flex-col items-center gap-2 animate-bounce opacity-80">
+        <span className="text-white/70 text-xs uppercase tracking-[0.2em] font-light drop-shadow-md">Explore</span>
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="white" viewBox="0 0 16 16" className="drop-shadow-md">
+          <path fillRule="evenodd" d="M8 1a.5.5 0 0 1 .5.5v11.793l3.146-3.147a.5.5 0 0 1 .708.708l-4 4a.5.5 0 0 1-.708 0l-4-4a.5.5 0 0 1 .708-.708L7.5 13.293V1.5A.5.5 0 0 1 8 1z"/>
+        </svg>
+      </div>
+
     </section>
   )
 }
