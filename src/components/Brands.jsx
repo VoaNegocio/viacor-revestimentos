@@ -1,5 +1,4 @@
 import { useState, useEffect, useRef } from 'react'
-import { MdBuild } from 'react-icons/md'
 import { FaChevronLeft, FaChevronRight, FaTimes } from 'react-icons/fa'
 
 function Brands() {
@@ -143,7 +142,6 @@ function Brands() {
             </div>
 
             <div className="flex items-center justify-center gap-2 text-slate-600 mb-8 md:mb-12">
-              <MdBuild className="text-2xl text-[#C0392B]" /> {/* Ícone em Terracota para destaque sutil */}
               <p className="text-base md:text-lg font-medium">
                 Garantia de sofisticação, durabilidade e excelência estética.
               </p>
