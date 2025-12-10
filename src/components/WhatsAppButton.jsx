@@ -1,7 +1,7 @@
 import { FaWhatsapp } from 'react-icons/fa'
 
 function WhatsAppButton() {
-  const whatsappUrl = "https://wa.me/5511999999999?text=Olá! Gostaria de agendar uma visita ao showroom da Via Cor Revestimentos."
+  const whatsappUrl = "https://wa.me/5511940371530?text=Olá! Gostaria de agendar uma visita ao showroom da Via Cor Revestimentos."
 
   return (
     <a
