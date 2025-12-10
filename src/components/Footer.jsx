@@ -34,8 +34,20 @@ function Footer() {
           </div>
         </div>
         
-        <div className="border-t border-[#2C3E50] pt-8 text-center text-sm text-gray-300">
+        <div className="border-t border-[#2C3E50] pt-8 text-center text-sm text-gray-300 space-y-2">
           <p>&copy; {new Date().getFullYear()} Via Cor Revestimentos. Todos os direitos reservados.</p>
+          <p className="text-gray-400 text-xs">
+            Landing Page made by Voa Negocio Digital e{' '}
+            <a 
+              href="https://almavictor.digital" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="text-white/80 hover:text-[#C0392B] transition-colors"
+            >
+              <span>Victor</span>
+            </a>
+            .
+          </p>
         </div>
       </div>
     </footer>
