@@ -27,11 +27,11 @@ function Hero() {
             
             {/* A Caixa de Vidro Premium (Bem mais justa e minimalista) */}
             {/* Padding reduzido para px-3 py-2 (quase colando) */}
-            <div className="relative bg-white/5 backdrop-blur-md border border-white/10 rounded-xl px-3 py-2 md:px-4 md:py-3 shadow-xl transform transition-all duration-500 hover:scale-105 hover:bg-white/10 hover:border-white/20 hover:shadow-white/10">
+            <div className="relative bg-white/5 backdrop-blur-md border border-white/10 rounded-xl px-4 py-3 md:px-4 md:py-3 shadow-xl transform transition-all duration-500 hover:scale-105 hover:bg-white/10 hover:border-white/20 hover:shadow-white/10">
               <img 
                 src="/viacor-logo-instagram .jpg" 
                 alt="Via Cor Revestimentos" 
-                className="h-8 md:h-12 lg:h-14 object-contain drop-shadow-sm filter brightness-105"
+                className="h-14 md:h-12 lg:h-14 object-contain drop-shadow-sm filter brightness-105"
               />
             </div>
 
