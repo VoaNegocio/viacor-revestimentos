@@ -3834,7 +3834,7 @@ bg-white/25 backdrop-blur-lg border border-white/30 rounded-2xl
 ✅ **Responsividade completa**  
 ⏳ **Aguardando conteúdo real (imagens, depoimentos)**  
 ⏳ **Configurar número de WhatsApp real**  
-✅ **Adicionar Google Maps**  
+⏳ **Adicionar Google Maps**  
 
 ## Próximos Passos
 
@@ -3842,11 +3842,11 @@ bg-white/25 backdrop-blur-lg border border-white/30 rounded-2xl
 - [ ] Substituir placeholders por imagens reais dos projetos
 - [ ] Adicionar prints reais do Google Reviews
 - [ ] Configurar número de WhatsApp real (atualmente placeholder)
-- [x] Adicionar Google Maps na seção de contato
-- [x] Implementar carrossel de fotos do showroom
-- [x] Adicionar foto do showroom na seção CTA
-- [x] Otimizar imagens para performance (lazy loading, compressão, LCP)
-- [x] Configurar SEO (meta tags básicas) e meta tags completas
+- [ ] Adicionar Google Maps na seção de contato
+- [ ] Implementar carrossel de fotos do showroom
+- [ ] Adicionar foto do showroom na seção CTA
+- [ ] Otimizar imagens para performance (lazy loading, compressão)
+- [ ] Configurar SEO e meta tags completas
 - [ ] Adicionar Google Tag Manager / Analytics
 - [ ] Testes de acessibilidade
 
@@ -3856,43 +3856,6 @@ bg-white/25 backdrop-blur-lg border border-white/30 rounded-2xl
 - [ ] Adicionar mais interatividade nas seções
 - [ ] A/B testing de CTAs
 - [ ] Análise de conversão e otimizações baseadas em dados
-
----
-
-### Implementação: Carrossel do Showroom e CTA Premium
-**Data:** Implementação Recente
-**Objetivo:** Adicionar elementos visuais do showroom para aumentar autoridade e desejo
-
-**Decisões:**
-- **Benefits.jsx:** Adicionado carrossel de fotos reais do showroom (`showroom1.jpg` a `showroom5.jpg`) abaixo dos benefícios em texto. Cards com design premium, shadow e overlays.
-- **CTA.jsx:** Substituído fundo sólido por foto do showroom (`showroom5.jpg`) com overlay pesado (`mix-blend-multiply`) para manter legibilidade e toque premium (Glassmorphism over image).
-- **Layout CTA:** Botão principal movido para a coluna da esquerda (abaixo das informações) para melhor fluxo de leitura, deixando o mapa à direita como elemento visual de suporte.
-
-**Status:** ✅ Implementado
-
----
-
-### Otimização: Performance Extrema (LCP, CLS e Code Splitting)
-**Data:** Otimização de Velocidade
-**Objetivo:** Maximizar a pontuação no Google PageSpeed Insights e reduzir tempo de carregamento.
-
-**Estratégias Implementadas:**
-1.  **LCP (Largest Contentful Paint) Otimizado:**
-    *   Substituído `background-image` CSS por tag `<img>` no Hero para permitir descoberta antecipada pelo scanner do navegador.
-    *   Adicionado `fetchpriority="high"` e `loading="eager"` na imagem principal (`img1.jpg`).
-    *   Adicionado `<link rel="preload">` no `index.html` para a imagem Hero.
-
-2.  **Code Splitting (Divisão de Código):**
-    *   Implementado `React.lazy` e `Suspense` em `App.jsx` para todos os componentes abaixo da dobra (Testimonials, Benefits, CTA, Footer).
-    *   Configuração manual de chunks no `vite.config.js` (`rollupOptions`), separando `react-vendor` (React/DOM) e `ui-vendor` (Ícones) do bundle principal.
-
-3.  **Configurações de Build:**
-    *   Minificação forçada com `esbuild`.
-    *   Minificação de CSS ativada.
-
-**Resultado Esperado:** Carregamento inicial quase instantâneo do Hero e carregamento sob demanda do restante do site (melhora drástica em TBT e LCP).
-
-**Status:** ✅ Otimizado
 
 ---
 
@@ -6311,3 +6274,89 @@ const ServiceCard = ({ service, index }) => {
     );
 };
 ```
+
+---
+
+# 🏠 Projeto: Via Cor Revestimentos
+
+## Sobre o Projeto
+- **Nome**: Via Cor Revestimentos
+- **Objetivo**: Showroom de revestimentos premium e acabamentos de alto padrão.
+- **Foco**: Captação de leads e visitas ao showroom (Zona Sul SP).
+- **Stack**: React + Vite + Tailwind CSS.
+
+## 📅 Atualizações Recentes (07/01/2026)
+
+### ✅ Implementação: Favicon Personalizado
+**Data:** 07/01/2026
+**Ação:** Configuração do favicon oficial da marca.
+**Arquivo:** `index.html`
+**Código:**
+```html
+<link rel="icon" type="image/png" href="/viacor-logo-instagram .jpg" />
+```
+
+### ✅ Integração: Google Tag Manager (GTM)
+**Data:** 07/01/2026
+**Objetivo:** Habilitar rastreamento de conversões e analytics.
+**ID do Container:** `GTM-MSRLMTZT`
+**Implementação:**
+- Script no `<head>` para carregamento assíncrono.
+- Noscript no `<body>` para fallback.
+
+### 🎨 Refinamento: Stone Cards (Galeria de Pedras)
+**Data:** 07/01/2026
+**Componente:** `Services.jsx` / `StoneCard`
+**Problema:** As imagens dos cards estavam cortadas ou com proporção incorreta (quadradas), prejudicando a visualização das pedras naturais.
+**Solução:**
+- Ajuste para manter o **aspect ratio original** (vertical/retangular) das imagens.
+- Refinamento das dimensões do container para acomodar a altura natural da imagem.
+- Preservação do estilo e posicionamento dos títulos (`h3`).
+- **Resultado:** Visualização fiel das texturas e padrões das pedras, com design mais elegante.
+
+### 🚀 Otimização de Performance
+**Data:** 07/01/2026
+**Objetivo:** Maximizar score no Lighthouse e velocidade de carregamento.
+**Ações:**
+- **Code Splitting:** Configuração de lazy loading para componentes não críticos (`Testimonials`, `Benefits`, `CTA`, `Footer`) no `App.jsx`.
+- **Preload LCP:** Adicionado `<link rel="preload">` para a imagem principal do Hero (`/fotos/img1.jpg`) no `index.html`.
+- **Fonts:** Configuração de `preconnect` para Google Fonts e uso de `Swap` implícito via URL.
+
+---
+
+### 🔄 Implementação: Carrossel Infinito de Marcas
+**Data:** 07/01/2026
+**Componente:** `Brands.jsx`
+**Objetivo:** Modernizar a apresentação das marcas parceiras e unificar a experiência mobile/desktop.
+**Mudanças:**
+- **Layout Unificado:** Substituição das listas separadas (grid desktop / snap-carousel mobile) por um único componente de **Marquee Infinito**.
+- **Animação:** Uso de CSS `@keyframes scroll-infinite` para rolagem contínua automática.
+- **Interatividade:**
+    - `hover:pause`: O carrossel pausa suavemente ao passar o mouse, facilitando o clique.
+    - **Manutenção de Funcionalidade:** As marcas continuam sendo botões que abrem os modais de galeria específicos.
+- **Visual:** Adição de máscara de gradiente (`mask-image`) nas laterais para um efeito de fade-out elegante.
+
+### ✨ Refinamento: Carrossel de Marcas (UX/UI)
+**Data:** 07/01/2026
+**Componente:** `Brands.jsx` / `index.css`
+**Ajustes:**
+- **Velocidade Reduzida:** Animação ajustada para `60s` (anteriormente 20s) para uma visualização mais calma e premium.
+- **Indicador de Clique:** Adicionado overlay "Ver Projetos" (com ícone/badge) que aparece no hover, deixando claro que os logos são clicáveis.
+- **Micro-interações:** Ajuste de escala e sombra no hover para reforçar a interatividade.
+
+### 📱 Refinamento Mobile: Indicador de Interação
+**Data:** 07/01/2026
+**Componente:** `Brands.jsx`
+**Ação:** Implementação de um guia visual específico para dispositivos móveis.
+**Detalhes:**
+- Inclusão do texto **"👆 Toque na marca para ver projetos"** logo abaixo do carrossel.
+- Uso de animação `animate-pulse` para chamar atenção de forma sutil.
+- Visível apenas em resoluções mobile (`md:hidden`), garantindo uma UX limpa no desktop onde o hover já cumpre essa função.
+
+### ⚡️ Refinamento Funcional: Deseleção de Marca
+**Data:** 07/01/2026
+**Componente:** `Brands.jsx`
+**Ação:** Implementação de lógica de toggle na seleção de marcas.
+**Comportamento:**
+- **Antes:** Clicar em uma marca apenas selecionava. Para ver "todas", era necessário recarregar ou selecionar outra.
+- **Depois:** Clicar na marca **já ativa** remove a seleção (`setSelectedBrand(null)`), retornando a visualização para a galeria geral com todos os projetos. Isso melhora a navegabilidade e o controle do usuário.

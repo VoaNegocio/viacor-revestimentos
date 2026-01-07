@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef, useCallback } from 'react'
+import { useState, useEffect, useCallback } from 'react'
 import { FaTimes, FaChevronLeft, FaChevronRight } from 'react-icons/fa'
 import GalleryModal from './GalleryModal'
 
@@ -52,26 +52,18 @@ function Brands() {
 
   // Estados para galeria geral de projetos (mantido para compatibilidade)
   const [selectedImage, setSelectedImage] = useState(null)
-  const [activeMobileIndex, setActiveMobileIndex] = useState(0)
-  const mobileScrollRef = useRef(null)
 
-  // Estado para carrossel mobile de marcas
-  const [brandsMobileIndex, setBrandsMobileIndex] = useState(0)
-  const brandsMobileScrollRef = useRef(null)
-  
-  // Agrupar marcas para mobile (2 por grupo)
-  const brandsPerGroup = 2
-  const brandsGroups = []
-  for (let i = 0; i < brands.length; i += brandsPerGroup) {
-    brandsGroups.push(brands.slice(i, i + brandsPerGroup))
-  }
-
-  const currentIndex = selectedImage ? projectImages.findIndex(img => img.id === selectedImage.id) : -1
-  const totalMobileGroups = Math.ceil(projectImages.length / 4)
+  // Duplicar marcas para o efeito de carrossel infinito (várias vezes para garantir fluidez em telas largas)
+  // 4 marcas originais * 6 repetições = 24 itens no total
+  const displayBrands = [...brands, ...brands, ...brands, ...brands, ...brands, ...brands]
 
   // Funções para seleção de marca e galeria
   const selectBrand = (brandName) => {
-    setSelectedBrand(brandName)
+    if (selectedBrand === brandName) {
+      setSelectedBrand(null) // Clicar na mesma marca desativa o filtro
+    } else {
+      setSelectedBrand(brandName)
+    }
     setIsBrandModalOpen(false) // Fecha modal se estiver aberto
   }
 
@@ -125,43 +117,6 @@ function Brands() {
     })
   }, [projectImages])
 
-  const handleMobileScroll = () => {
-    if (mobileScrollRef.current) {
-      const { scrollLeft, clientWidth } = mobileScrollRef.current
-      const newIndex = Math.round(scrollLeft / clientWidth)
-      setActiveMobileIndex(newIndex)
-    }
-  }
-
-  const scrollToGroup = (index) => {
-    if (mobileScrollRef.current) {
-      const width = mobileScrollRef.current.clientWidth
-      mobileScrollRef.current.scrollTo({
-        left: width * index,
-        behavior: 'smooth'
-      })
-    }
-  }
-
-  // Funções para carrossel mobile de marcas
-  const handleBrandsMobileScroll = () => {
-    if (brandsMobileScrollRef.current) {
-      const { scrollLeft, clientWidth } = brandsMobileScrollRef.current
-      const newIndex = Math.round(scrollLeft / clientWidth)
-      setBrandsMobileIndex(newIndex)
-    }
-  }
-
-  const scrollToBrandsGroup = (index) => {
-    if (brandsMobileScrollRef.current) {
-      const width = brandsMobileScrollRef.current.clientWidth
-      brandsMobileScrollRef.current.scrollTo({
-        left: width * index,
-        behavior: 'smooth'
-      })
-    }
-  }
-
   useEffect(() => {
     if (!selectedImage) {
       document.body.style.overflow = 'unset'
@@ -170,23 +125,23 @@ function Brands() {
 
     const handleKeyDown = (e) => {
       switch (e.key) {
-        case 'Escape': 
+        case 'Escape':
           setSelectedImage(null)
           break
-        case 'ArrowRight': 
+        case 'ArrowRight':
           nextImage()
           break
-        case 'ArrowLeft': 
+        case 'ArrowLeft':
           prevImage()
           break
-        default: 
+        default:
           break
       }
     }
-    
+
     window.addEventListener('keydown', handleKeyDown)
     document.body.style.overflow = 'hidden'
-    
+
     return () => {
       window.removeEventListener('keydown', handleKeyDown)
       document.body.style.overflow = 'unset'
@@ -195,15 +150,10 @@ function Brands() {
 
   return (
     <section id="marcas" className="py-16 md:py-24 px-4 relative overflow-hidden bg-[#F8FAFC]">
-      
-      {/* --- BACKGROUND PREMIUM (Arquitetura & Luz) --- */}
-      
-      {/* 1. Base Clara Sofisticada (Slate-50) */}
-      <div className="absolute inset-0 bg-[#F8FAFC]"></div>
 
-      {/* 2. Grid Arquitetônico (Efeito Blueprint Minimalista) 
-          Substitui as linhas diagonais por um grid reto e limpo */}
-      <div 
+      {/* --- BACKGROUND PREMIUM (Arquitetura & Luz) --- */}
+      <div className="absolute inset-0 bg-[#F8FAFC]"></div>
+      <div
         className="absolute inset-0 opacity-[0.6]"
         style={{
           backgroundImage: `
@@ -213,57 +163,59 @@ function Brands() {
           backgroundSize: '40px 40px'
         }}
       ></div>
-
-      {/* 3. Iluminação "Showroom" (Spotlight Central)
-          Cria um ponto de luz suave vindo de cima, como se iluminasse os produtos */}
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-4xl h-[500px] bg-white rounded-full blur-[120px] opacity-70 pointer-events-none"></div>
-
-      {/* 4. Vinheta Suave (Foco no Centro) */}
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,transparent_0%,rgba(248,250,252,0.8)_100%)]"></div>
-      
-      {/* 5. Detalhe de Profundidade no Rodapé (Fade out) */}
       <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-[#F8FAFC] to-transparent"></div>
 
 
       {/* --- CONTEÚDO PRINCIPAL (Z-Index Ajustado) --- */}
       <div className="relative z-10">
-        <div className="max-w-7xl mx-auto">
-          
-          <div className="text-center mb-12 md:mb-16">
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-slate-800 mb-6 font-serif tracking-tight">
+        <div className="max-w-full mx-auto">
+
+          <div className="text-center mb-12 md:mb-16 px-4">
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-slate-800 mb-6 font-serif tracking-tight max-w-5xl mx-auto">
               Trabalhamos com quem dita tendência em acabamentos de alto padrão
             </h2>
-            
-            {/* Logos das Marcas - Desktop (Clicáveis) */}
-            <div className="hidden md:flex flex-wrap items-center justify-center gap-6 md:gap-8 mb-8">
-              {brands.map((brand, index) => (
-                <button
-                  key={index}
-                  onClick={() => selectBrand(brand.name)}
-                  className={`flex items-center justify-center h-16 md:h-20 px-4 py-2 bg-white/50 backdrop-blur-sm rounded-lg border transition-all duration-300 cursor-pointer group ${
-                    selectedBrand === brand.name
-                      ? 'border-[#C0392B] shadow-md'
-                      : 'border-slate-100 shadow-sm hover:shadow-md hover:border-[#C0392B]'
-                  }`}
-                  aria-label={`Ver projetos ${brand.name}`}
-                >
-                  <img
-                    src={brand.logo}
-                    alt={`Logo ${brand.name}`}
-                    className={`h-full w-auto object-contain transition-opacity duration-300 filter ${
-                      selectedBrand === brand.name
+
+            {/* INFINITE CAROUSEL - Substitui as versões estáticas desktop e mobile */}
+            <div className="w-full inline-flex flex-nowrap overflow-hidden [mask-image:_linear-gradient(to_right,transparent_0,_black_128px,_black_calc(100%-128px),transparent_100%)] mb-8">
+              <div className="flex items-center justify-center md:justify-start [&_li]:mx-8 [&_img]:max-w-none animate-scroll-infinite hover:[animation-play-state:paused] py-4">
+                {displayBrands.map((brand, index) => (
+                  <button
+                    key={index}
+                    onClick={() => selectBrand(brand.name)}
+                    className={`relative flex-shrink-0 flex items-center justify-center h-20 md:h-24 px-8 py-3 mx-4 bg-white/60 backdrop-blur-sm rounded-xl border transition-all duration-300 cursor-pointer group hover:scale-105 ${selectedBrand === brand.name
+                      ? 'border-[#C0392B] shadow-md scale-105 bg-white'
+                      : 'border-slate-100 shadow-sm hover:shadow-md hover:border-[#C0392B] hover:bg-white'
+                      }`}
+                    aria-label={`Ver projetos ${brand.name}`}
+                  >
+                    <img
+                      src={brand.logo}
+                      alt={`Logo ${brand.name}`}
+                      className={`h-full w-auto object-contain transition-all duration-300 filter ${selectedBrand === brand.name
                         ? 'opacity-100 grayscale-0'
-                        : 'opacity-80 group-hover:opacity-100 grayscale group-hover:grayscale-0'
-                    }`}
-                    loading="lazy"
-                  />
-                </button>
-              ))}
-              <div className="flex items-center justify-center h-16 md:h-20 px-4 py-2 bg-white/50 backdrop-blur-sm rounded-lg border border-slate-100">
-                <span className="text-base md:text-lg font-semibold text-slate-600">
-                  + outras 20 marcas
-                </span>
+                        : 'opacity-70 group-hover:opacity-20 grayscale group-hover:grayscale-0'
+                        }`}
+                      loading="lazy"
+                    />
+
+                    {/* Indicador de Clique (Hover) */}
+                    <span className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none">
+                      <span className="bg-[#C0392B] text-white text-xs font-bold px-3 py-1 rounded-full shadow-lg transform translate-y-2 group-hover:translate-y-0 transition-transform duration-300 whitespace-nowrap">
+                        Ver Projetos
+                      </span>
+                    </span>
+                  </button>
+                ))}
               </div>
+            </div>
+
+            {/* Indicador Mobile - Toque para ver */}
+            <div className="md:hidden text-center -mt-6 mb-8 animate-pulse">
+              <span className="text-sm text-slate-500 font-medium flex items-center justify-center gap-2">
+                👆 Toque na marca para ver projetos
+              </span>
             </div>
 
             <div className="flex items-center justify-center gap-2 text-slate-600 mb-8 md:mb-12">
@@ -273,77 +225,16 @@ function Brands() {
             </div>
           </div>
 
-          {/* Logos das Marcas - Mobile (Clicáveis com Carrossel) */}
-          <div className="md:hidden mb-12">
-            <div 
-              ref={brandsMobileScrollRef}
-              onScroll={handleBrandsMobileScroll}
-              className="overflow-x-auto scrollbar-hide pb-4 -mx-4 px-4"
-              style={{ scrollSnapType: 'x mandatory' }}
-            >
-              <div className="flex gap-4 min-w-max">
-                {brandsGroups.map((group, groupIndex) => (
-                  <div 
-                    key={groupIndex} 
-                    className="flex gap-4 flex-shrink-0"
-                    style={{ scrollSnapAlign: 'start', width: 'calc(100vw - 2rem)' }}
-                  >
-                    {group.map((brand, brandIndex) => (
-                      <button
-                        key={`${groupIndex}-${brandIndex}`}
-                        onClick={() => selectBrand(brand.name)}
-                        className={`flex items-center justify-center h-16 px-6 py-3 bg-white/60 backdrop-blur-sm rounded-lg border transition-all duration-300 flex-shrink-0 cursor-pointer ${
-                          selectedBrand === brand.name
-                            ? 'border-[#C0392B] shadow-md'
-                            : 'border-slate-100 shadow-sm hover:shadow-md hover:border-[#C0392B]'
-                        }`}
-                        aria-label={`Ver projetos ${brand.name}`}
-                      >
-                        <img
-                          src={brand.logo}
-                          alt={`Logo ${brand.name}`}
-                          className="h-full w-auto object-contain"
-                          loading="lazy"
-                        />
-                      </button>
-                    ))}
-                    {/* Espaço vazio se o grupo tiver menos de 2 marcas */}
-                    {group.length < brandsPerGroup && Array.from({ length: brandsPerGroup - group.length }).map((_, i) => (
-                      <div key={`empty-${i}`} className="w-0"></div>
-                    ))}
-                  </div>
-                ))}
-              </div>
-            </div>
-            {/* Dots de navegação */}
-            {brandsGroups.length > 1 && (
-              <div className="flex justify-center items-center gap-2 mt-4">
-                {brandsGroups.map((_, index) => (
-                  <button
-                    key={index}
-                    onClick={() => scrollToBrandsGroup(index)}
-                    className={`transition-all duration-300 rounded-full ${
-                      brandsMobileIndex === index
-                        ? 'w-6 h-1.5 bg-slate-800'
-                        : 'w-1.5 h-1.5 bg-slate-300 hover:bg-slate-400'
-                    }`}
-                    aria-label={`Ir para grupo ${index + 1}`}
-                  />
-                ))}
-              </div>
-            )}
-          </div>
-
           {/* --- Galeria de Projetos por Marca --- */}
-          <div className="mb-8">
+          <div className="mb-8 max-w-7xl mx-auto px-4">
             {selectedBrand && getSelectedBrandImages().length > 0 ? (
               <>
                 <h3 className="text-2xl md:text-3xl font-bold text-slate-800 mb-10 text-center font-serif">
                   Projetos {selectedBrand}
                 </h3>
-                
+
                 {/* Desktop Grid - Fotos da Marca Selecionada */}
-                <div className="hidden md:grid md:grid-cols-3 lg:grid-cols-4 gap-4 lg:gap-6">
+                <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 lg:gap-6">
                   {getSelectedBrandImages().map((image, index) => (
                     <div
                       key={index}
@@ -358,7 +249,7 @@ function Brands() {
                       />
                       {/* Overlay Premium: Gradiente escuro apenas na base para texto legível */}
                       <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-                      
+
                       <div className="absolute bottom-0 left-0 right-0 p-4 transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300 opacity-0 group-hover:opacity-100">
                         <p className="text-white text-sm font-medium tracking-wide border-l-2 border-[#C0392B] pl-3">
                           Ver detalhes do projeto
@@ -373,9 +264,9 @@ function Brands() {
                 <h3 className="text-2xl md:text-3xl font-bold text-slate-800 mb-10 text-center font-serif">
                   Projetos Realizados
                 </h3>
-                
-                {/* Desktop Grid - Galeria Geral (quando nenhuma marca está selecionada) */}
-                <div className="hidden md:grid md:grid-cols-3 lg:grid-cols-4 gap-4 lg:gap-6">
+
+                {/* Grid Geral (quando nenhuma marca está selecionada) */}
+                <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 lg:gap-6">
                   {projectImages.map((image) => (
                     <div
                       key={image.id}
@@ -390,7 +281,7 @@ function Brands() {
                       />
                       {/* Overlay Premium: Gradiente escuro apenas na base para texto legível */}
                       <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-                      
+
                       <div className="absolute bottom-0 left-0 right-0 p-4 transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300 opacity-0 group-hover:opacity-100">
                         <p className="text-white text-sm font-medium tracking-wide border-l-2 border-[#C0392B] pl-3">
                           Ver detalhes do projeto
@@ -401,111 +292,6 @@ function Brands() {
                 </div>
               </>
             )}
-
-            {/* Mobile Grid/Carousel */}
-            <div className="md:hidden">
-              {selectedBrand && getSelectedBrandImages().length > 0 ? (
-                <>
-                  <div 
-                    ref={mobileScrollRef}
-                    onScroll={handleMobileScroll}
-                    className="overflow-x-auto scrollbar-hide pb-4 -mx-4 px-4"
-                    style={{ scrollSnapType: 'x mandatory' }}
-                  >
-                    <div className="flex gap-4 min-w-max">
-                      {(() => {
-                        const brandImages = getSelectedBrandImages()
-                        const totalGroups = Math.ceil(brandImages.length / 4)
-                        return Array.from({ length: totalGroups }, (_, groupIndex) => {
-                          const startIndex = groupIndex * 4
-                          const groupImages = brandImages.slice(startIndex, startIndex + 4)
-                          return (
-                            <div key={groupIndex} className="flex-shrink-0 w-[calc(100vw-2rem)]" style={{ scrollSnapAlign: 'start' }}>
-                              <div className="grid grid-cols-2 gap-3">
-                                {groupImages.map((image, imgIndex) => (
-                                  <div
-                                    key={imgIndex}
-                                    onClick={() => openBrandModal(startIndex + imgIndex)}
-                                    className="relative group overflow-hidden rounded-lg shadow-md aspect-square"
-                                  >
-                                    <img src={image.src} alt={image.alt} className="w-full h-full object-cover" loading="lazy" />
-                                  </div>
-                                ))}
-                                {groupImages.length < 4 && Array.from({ length: 4 - groupImages.length }).map((_, i) => (
-                                  <div key={`empty-${i}`} className="aspect-square"></div>
-                                ))}
-                              </div>
-                            </div>
-                          )
-                        })
-                      })()}
-                    </div>
-                  </div>
-                  {/* Dots */}
-                  {Math.ceil(getSelectedBrandImages().length / 4) > 1 && (
-                    <div className="flex justify-center items-center gap-2 mt-4">
-                      {Array.from({ length: Math.ceil(getSelectedBrandImages().length / 4) }).map((_, index) => (
-                        <button
-                          key={index}
-                          onClick={() => scrollToGroup(index)}
-                          className={`transition-all duration-300 rounded-full ${
-                            activeMobileIndex === index ? 'w-6 h-1.5 bg-slate-800' : 'w-1.5 h-1.5 bg-slate-300'
-                          }`}
-                        />
-                      ))}
-                    </div>
-                  )}
-                </>
-              ) : (
-                <>
-                  <div 
-                    ref={mobileScrollRef}
-                    onScroll={handleMobileScroll}
-                    className="overflow-x-auto scrollbar-hide pb-4 -mx-4 px-4"
-                    style={{ scrollSnapType: 'x mandatory' }}
-                  >
-                    <div className="flex gap-4 min-w-max">
-                      {Array.from({ length: totalMobileGroups }, (_, groupIndex) => {
-                        const startIndex = groupIndex * 4
-                        const groupImages = projectImages.slice(startIndex, startIndex + 4)
-                        return (
-                          <div key={groupIndex} className="flex-shrink-0 w-[calc(100vw-2rem)]" style={{ scrollSnapAlign: 'start' }}>
-                            <div className="grid grid-cols-2 gap-3">
-                              {groupImages.map((image) => (
-                                <div
-                                  key={image.id}
-                                  onClick={() => setSelectedImage(image)}
-                                  className="relative group overflow-hidden rounded-lg shadow-md aspect-square"
-                                >
-                                  <img src={image.src} alt={image.alt} className="w-full h-full object-cover" loading="lazy" />
-                                </div>
-                              ))}
-                              {groupImages.length < 4 && Array.from({ length: 4 - groupImages.length }).map((_, i) => (
-                                <div key={`empty-${i}`} className="aspect-square"></div>
-                              ))}
-                            </div>
-                          </div>
-                        )
-                      })}
-                    </div>
-                  </div>
-                  {/* Dots */}
-                  {totalMobileGroups > 1 && (
-                    <div className="flex justify-center items-center gap-2 mt-4">
-                      {Array.from({ length: totalMobileGroups }).map((_, index) => (
-                        <button
-                          key={index}
-                          onClick={() => scrollToGroup(index)}
-                          className={`transition-all duration-300 rounded-full ${
-                            activeMobileIndex === index ? 'w-6 h-1.5 bg-slate-800' : 'w-1.5 h-1.5 bg-slate-300'
-                          }`}
-                        />
-                      ))}
-                    </div>
-                  )}
-                </>
-              )}
-            </div>
           </div>
 
           {/* Modal de Galeria por Marca */}

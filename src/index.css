@@ -277,7 +277,7 @@ small, .text-sm {
 }
 
 .animate-scroll-infinite {
-  animation: scroll-infinite 20s linear infinite;
+  animation: scroll-infinite 60s linear infinite;
   display: flex;
   width: max-content;
 }
