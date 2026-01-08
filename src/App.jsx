@@ -1,8 +1,9 @@
 import { Suspense, lazy } from 'react'
 import Hero from './components/Hero'
-import Brands from './components/Brands'
+
 
 // Lazy load components below the fold to improve initial load time
+const Brands = lazy(() => import('./components/Brands'))
 const Testimonials = lazy(() => import('./components/Testimonials'))
 const Benefits = lazy(() => import('./components/Benefits'))
 const CTA = lazy(() => import('./components/CTA'))
@@ -21,10 +22,10 @@ function App() {
     <div className="min-h-screen">
       {/* Eager load critical components */}
       <Hero />
-      <Brands />
 
       {/* Lazy load non-critical components */}
       <Suspense fallback={<SectionLoader />}>
+        <Brands />
         <Testimonials />
         <Benefits />
         <CTA />
