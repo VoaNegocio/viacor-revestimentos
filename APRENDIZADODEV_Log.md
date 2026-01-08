@@ -6371,3 +6371,16 @@ const ServiceCard = ({ service, index }) => {
 - Conversão de todas as imagens do projeto para formato **WebP** com compressão inteligente.
 - Atualização de todas as referências no código (`Hero`, `Benefits`, `Brands`, `CTA`) para os novos arquivos `.webp`.
 **Resultado:** Redução drástica no tamanho do payload (estimada em +90% para imagens), eliminando avisos de "Serve images in next-gen formats" e melhorando LCP.
+
+### ⚡️ Fix de Performance: Auditoria de Imagens e Animações CSS
+**Data:** 08/01/2026
+**Problema 1 (Imagens):** Mesmo após rodar o script de otimização, o PageSpeed Insights continuava alertando sobre imagens pesadas.
+**Causa:** O código em `Brands.jsx` ainda referenciava explicitamente as extensões `.jpg` antigas no array `projectImages`, ignorando as versões `.webp` geradas.
+**Solução:** Auditoria manual e substituição de todas as referências `.jpg` por `.webp` nos componentes.
+**Lição:** Sempre verificar hardcoded strings após otimizações de assets.
+
+**Problema 2 (Animação):** Alerta de "Avoid non-composited animations" no Lighthouse.
+**Causa:** A animação customizada `whatsapp-pulse` no `index.css` utilizava a propriedade `box-shadow`.
+**Explicação Técnica:** Animar `box-shadow` força o navegador a recalcular o layout e repintar pixels (Repaint/Reflow) a cada frame, o que é pesado para a CPU.
+**Solução:** Remoção da animação customizada e uso da classe utilitária `animate-ping` do Tailwind.
+**Por que funciona:** `animate-ping` utiliza `transform: scale()` e `opacity`. Essas propriedades são processadas diretamente na GPU (Compositor Thread), não exigindo repaints, garantindo 60fps suave.

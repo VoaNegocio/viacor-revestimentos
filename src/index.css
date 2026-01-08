@@ -301,21 +301,8 @@ small, .text-sm {
   transform: translateY(0) scale(0.95);
 }
 
-/* Animação de pulse para o botão WhatsApp */
-@keyframes whatsapp-pulse {
-  0%, 100% {
-    box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7),
-                0 0 0 0 rgba(37, 211, 102, 0.4);
-  }
-  50% {
-    box-shadow: 0 0 0 10px rgba(37, 211, 102, 0),
-                0 0 0 20px rgba(37, 211, 102, 0);
-  }
-}
-
-.whatsapp-btn-premium > div > div:first-child {
-  animation: whatsapp-pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
-}
+/* Animação de pulse para o botão WhatsApp removida para performance (box-shadow causa repaint) */
+/* Utilizando animate-ping do Tailwind que usa transform/opacity (compositor-only) */
 
 /* Animações de Entrada - Hero Mobile Premium */
 @keyframes fade-in-up {
