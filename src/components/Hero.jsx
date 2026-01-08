@@ -30,9 +30,11 @@ function Hero() {
             {/* Padding reduzido para px-3 py-2 (quase colando) */}
             <div className="relative bg-white/5 backdrop-blur-md border border-white/10 rounded-xl px-4 py-3 md:px-4 md:py-3 shadow-xl transform transition-all duration-500 hover:scale-105 hover:bg-white/10 hover:border-white/20 hover:shadow-white/10">
               <img
-                src="/viacor-logo-instagram .jpg"
+                src="/viacor-logo.webp"
                 alt="Via Cor Revestimentos"
                 className="h-[86px] md:h-[78px] lg:h-[86px] object-contain drop-shadow-sm filter brightness-105"
+                width="150"
+                height="150"
               />
             </div>
 

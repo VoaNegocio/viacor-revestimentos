@@ -5,9 +5,9 @@ import GalleryModal from './GalleryModal'
 function Brands() {
   const brands = [
     { name: 'Portinari', logo: '/marcas/portinari-logo.svg' },
-    { name: 'Castellato', logo: '/marcas/castelato-logo3.png' },
-    { name: 'Eliane', logo: '/marcas/eliane-logo.png' },
-    { name: 'Atlas', logo: '/marcas/atlas-logo.png' }
+    { name: 'Castellato', logo: '/marcas/castelato-logo3.webp' },
+    { name: 'Eliane', logo: '/marcas/eliane-logo.webp' },
+    { name: 'Atlas', logo: '/marcas/atlas-logo.webp' }
   ]
 
   // Imagens por marca - cada marca tem seu próprio conjunto de imagens
@@ -208,6 +208,8 @@ function Brands() {
                         : 'opacity-70 group-hover:opacity-20 grayscale group-hover:grayscale-0'
                         }`}
                       loading="lazy"
+                      width="150"
+                      height="80"
                     />
 
                     {/* Indicador de Clique (Hover) */}
@@ -256,6 +258,8 @@ function Brands() {
                         alt={image.alt}
                         className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                         loading="lazy"
+                        width="1080"
+                        height="1080"
                       />
                       {/* Overlay Premium: Gradiente escuro apenas na base para texto legível */}
                       <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>

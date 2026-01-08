@@ -6384,3 +6384,18 @@ const ServiceCard = ({ service, index }) => {
 **Explicação Técnica:** Animar `box-shadow` força o navegador a recalcular o layout e repintar pixels (Repaint/Reflow) a cada frame, o que é pesado para a CPU.
 **Solução:** Remoção da animação customizada e uso da classe utilitária `animate-ping` do Tailwind.
 **Por que funciona:** `animate-ping` utiliza `transform: scale()` e `opacity`. Essas propriedades são processadas diretamente na GPU (Compositor Thread), não exigindo repaints, garantindo 60fps suave.
+
+### 🎨 Otimização Visual e de Layout (CLS & Assets)
+**Data:** 08/01/2026
+**Problema 1 (CLS no Banner/Logo):** O logo principal (`viacor-logo-instagram .jpg`) tinha um espaço no nome do arquivo (má prática), era JPG e não possuía atributos de dimensão, causando *shifts* de layout durante o carregamento.
+**Solução:**
+- Renomeação para `viacor-logo.webp` e conversão de formato.
+- Adição de `width="150"` e `height="150"` nas tags `<img>` em `Header.jsx` e `Hero.jsx`.
+**Lição:** Atributos de dimensão explícitos são **obrigatórios** para evitar CLS, mesmo que o CSS controle o tamanho final. O navegador precisa saber a proporção (aspect ratio) antes do download da imagem.
+
+**Problema 2 (Grid de Marcas):** As imagens da galeria infinita (`Brands.jsx`) e os avatares (`Testimonials.jsx`) não foram capturados pelo script inicial, permanecendo como PNGs pesados e sem dimensões definidas.
+**Solução:**
+- Conversão manual dos diretórios `/avatars` e `/marcas` para WebP.
+- Atualização das referências nos componentes.
+- Inclusão de atributos `width` e `height` nas imagens do carrossel e grid, garantindo estabilidade no layout.
+**Impacto:** Eliminação completa de imagens legadas e estabilização da métrica Cumulative Layout Shift (CLS) em componentes dinâmicos.

@@ -19,10 +19,12 @@ function Header() {
           <div className="flex-1 flex justify-center">
             <a href="#" className="hover:opacity-80 transition-opacity">
               <div className="bg-gray-900/60 backdrop-blur-xl border border-gray-700/50 rounded-xl px-4 py-2 md:px-6 md:py-3 shadow-2xl">
-                <img 
-                  src="/viacor-logo-instagram .jpg" 
-                  alt="Via Cor Revestimentos" 
+                <img
+                  src="/viacor-logo.webp"
+                  alt="Via Cor Revestimentos"
                   className="h-8 md:h-10 lg:h-12 object-contain drop-shadow-lg"
+                  width="150"
+                  height="150"
                 />
               </div>
             </a>
