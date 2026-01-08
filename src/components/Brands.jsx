@@ -13,36 +13,36 @@ function Brands() {
   // Imagens por marca - cada marca tem seu próprio conjunto de imagens
   const brandImages = {
     Portinari: [
-      { src: '/fotos/img1.jpg', alt: 'Projeto Portinari - Via Cor Revestimentos 1' },
-      { src: '/fotos/img2.jpg', alt: 'Projeto Portinari - Via Cor Revestimentos 2' },
-      { src: '/fotos/img3.jpg', alt: 'Projeto Portinari - Via Cor Revestimentos 3' },
+      { src: '/fotos/img1.webp', alt: 'Projeto Portinari - Via Cor Revestimentos 1' },
+      { src: '/fotos/img2.webp', alt: 'Projeto Portinari - Via Cor Revestimentos 2' },
+      { src: '/fotos/img3.webp', alt: 'Projeto Portinari - Via Cor Revestimentos 3' },
     ],
     Castellato: [
-      { src: '/fotos/img4.jpg', alt: 'Projeto Castellato - Via Cor Revestimentos 1' },
-      { src: '/fotos/img5.jpg', alt: 'Projeto Castellato - Via Cor Revestimentos 2' },
-      { src: '/fotos/img6.jpg', alt: 'Projeto Castellato - Via Cor Revestimentos 3' },
+      { src: '/fotos/img4.webp', alt: 'Projeto Castellato - Via Cor Revestimentos 1' },
+      { src: '/fotos/img5.webp', alt: 'Projeto Castellato - Via Cor Revestimentos 2' },
+      { src: '/fotos/img6.webp', alt: 'Projeto Castellato - Via Cor Revestimentos 3' },
     ],
     Eliane: [
-      { src: '/fotos/img7.jpg', alt: 'Projeto Eliane - Via Cor Revestimentos 1' },
-      { src: '/fotos/img8.jpg', alt: 'Projeto Eliane - Via Cor Revestimentos 2' },
-      { src: '/fotos/img1.jpg', alt: 'Projeto Eliane - Via Cor Revestimentos 3' },
+      { src: '/fotos/img7.webp', alt: 'Projeto Eliane - Via Cor Revestimentos 1' },
+      { src: '/fotos/img8.webp', alt: 'Projeto Eliane - Via Cor Revestimentos 2' },
+      { src: '/fotos/img1.webp', alt: 'Projeto Eliane - Via Cor Revestimentos 3' },
     ],
     Atlas: [
-      { src: '/fotos/img2.jpg', alt: 'Projeto Atlas - Via Cor Revestimentos 1' },
-      { src: '/fotos/img3.jpg', alt: 'Projeto Atlas - Via Cor Revestimentos 2' },
-      { src: '/fotos/img4.jpg', alt: 'Projeto Atlas - Via Cor Revestimentos 3' },
+      { src: '/fotos/img2.webp', alt: 'Projeto Atlas - Via Cor Revestimentos 1' },
+      { src: '/fotos/img3.webp', alt: 'Projeto Atlas - Via Cor Revestimentos 2' },
+      { src: '/fotos/img4.webp', alt: 'Projeto Atlas - Via Cor Revestimentos 3' },
     ]
   }
 
   const projectImages = [
-    { id: 1, src: '/fotos/img1.jpg', alt: 'Projeto Via Cor Revestimentos 1' },
+    { id: 1, src: '/fotos/img1.webp', alt: 'Projeto Via Cor Revestimentos 1' },
     { id: 2, src: '/fotos/img2.jpg', alt: 'Projeto Via Cor Revestimentos 2' },
     { id: 3, src: '/fotos/img3.jpg', alt: 'Projeto Via Cor Revestimentos 3' },
     { id: 4, src: '/fotos/img4.jpg', alt: 'Projeto Via Cor Revestimentos 4' },
     { id: 5, src: '/fotos/img5.jpg', alt: 'Projeto Via Cor Revestimentos 5' },
     { id: 6, src: '/fotos/img6.jpg', alt: 'Projeto Via Cor Revestimentos 6' },
     { id: 7, src: '/fotos/img7.jpg', alt: 'Projeto Via Cor Revestimentos 7' },
-    { id: 8, src: '/fotos/img8.jpg', alt: 'Projeto Via Cor Revestimentos 8' }
+    { id: 8, src: '/fotos/img8.webp', alt: 'Projeto Via Cor Revestimentos 8' }
   ]
 
   // Estados para galeria por marca

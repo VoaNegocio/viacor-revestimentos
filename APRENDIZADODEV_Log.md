@@ -6360,3 +6360,14 @@ const ServiceCard = ({ service, index }) => {
 **Comportamento:**
 - **Antes:** Clicar em uma marca apenas selecionava. Para ver "todas", era necessário recarregar ou selecionar outra.
 - **Depois:** Clicar na marca **já ativa** remove a seleção (`setSelectedBrand(null)`), retornando a visualização para a galeria geral com todos os projetos. Isso melhora a navegabilidade e o controle do usuário.
+
+## 📅 Atualizações Recentes (08/01/2026)
+
+### 🚀 Otimização de Performance: Imagens WebP
+**Data:** 08/01/2026
+**Problema:** Pontuação baixa no PageSpeed Insights devido a imagens pesadas (JPGs com até 19MB).
+**Solução:**
+- Implementação de script de otimização automatizada (`scripts/optimize-images.js`) utilizando a biblioteca `sharp`.
+- Conversão de todas as imagens do projeto para formato **WebP** com compressão inteligente.
+- Atualização de todas as referências no código (`Hero`, `Benefits`, `Brands`, `CTA`) para os novos arquivos `.webp`.
+**Resultado:** Redução drástica no tamanho do payload (estimada em +90% para imagens), eliminando avisos de "Serve images in next-gen formats" e melhorando LCP.

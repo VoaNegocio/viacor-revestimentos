@@ -11,11 +11,11 @@ function Benefits() {
   ]
 
   const showroomImages = [
-    { src: "/fotos/showroom1.jpg", alt: "Showroom Via Cor: Experiência sensorial completa" },
-    { src: "/fotos/showroom2.jpg", alt: "Ambientações reais para inspirar seu projeto" },
-    { src: "/fotos/showroom3.jpg", alt: "Variedade de texturas e acabamentos premium" },
-    { src: "/fotos/showroom4.jpg", alt: "Atendimento consultivo e personalizado" },
-    { src: "/fotos/showroom5.jpg", alt: "O melhor do design mundial em um só lugar" }
+    { src: "/fotos/showroom1.webp", alt: "Showroom Via Cor: Experiência sensorial completa" },
+    { src: "/fotos/showroom2.webp", alt: "Ambientações reais para inspirar seu projeto" },
+    { src: "/fotos/showroom3.webp", alt: "Variedade de texturas e acabamentos premium" },
+    { src: "/fotos/showroom4.webp", alt: "Atendimento consultivo e personalizado" },
+    { src: "/fotos/showroom5.webp", alt: "O melhor do design mundial em um só lugar" }
   ]
 
   const benefitsRef = useRef(null)
@@ -149,8 +149,8 @@ function Benefits() {
                 key={index}
                 onClick={() => scrollToIndex(benefitsRef, index)}
                 className={`transition-all duration-300 rounded-full ${activeBenefitIndex === index
-                    ? 'w-8 h-2 bg-[#1E3A5F]'
-                    : 'w-2 h-2 bg-slate-300 hover:bg-slate-400'
+                  ? 'w-8 h-2 bg-[#1E3A5F]'
+                  : 'w-2 h-2 bg-slate-300 hover:bg-slate-400'
                   }`}
                 aria-label={`Ir para benefício ${index + 1}`}
               />
@@ -214,8 +214,8 @@ function Benefits() {
                   key={index}
                   onClick={() => scrollToIndex(showroomRef, index)}
                   className={`transition-all duration-300 rounded-full ${activeShowroomIndex === index
-                      ? 'w-8 h-2 bg-[#C0392B]'
-                      : 'w-2 h-2 bg-slate-300 hover:bg-slate-400'
+                    ? 'w-8 h-2 bg-[#C0392B]'
+                    : 'w-2 h-2 bg-slate-300 hover:bg-slate-400'
                     }`}
                   aria-label={`Ver foto ${index + 1}`}
                 />

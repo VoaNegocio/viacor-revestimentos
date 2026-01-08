@@ -14,7 +14,7 @@ function CTA() {
         {/* Imagem de Fundo (Showroom) */}
         <div className="absolute inset-0">
           <img
-            src="/fotos/showroom5.jpg"
+            src="/fotos/showroom5.webp"
             alt="Showroom Via Cor"
             className="w-full h-full object-cover"
           />

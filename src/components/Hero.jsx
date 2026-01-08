@@ -7,7 +7,7 @@ function Hero() {
       {/* --- BACKGROUND CINEMATOGRÁFICO --- */}
       <div className="absolute inset-0 z-0 overflow-hidden">
         <img
-          src="/fotos/img1.jpg"
+          src="/fotos/img1.webp"
           alt="Showroom Via Cor Revestimentos"
           className="absolute inset-0 w-full h-full object-cover transition-transform duration-[20s] ease-linear transform scale-100 hover:scale-110 animate-subtle-zoom"
           fetchpriority="high"
