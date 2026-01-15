@@ -72,7 +72,7 @@ function Hero() {
 
             {/* Botão Verde Premium */}
             <a
-              href="https://wa.me/5511940371530?text=Olá! Gostaria de agendar uma visita ao showroom da Via Cor Revestimentos."
+              href="https://wa.me/5511940371530?text=Olá! Vim pelo Google e gostaria de mais informações sobre revestimentos"
               target="_blank"
               rel="noopener noreferrer"
               className="group relative inline-flex items-center justify-center px-8 py-4 overflow-hidden font-semibold text-white transition-all duration-300 rounded-lg shadow-lg hover:shadow-emerald-500/40 hover:-translate-y-1"

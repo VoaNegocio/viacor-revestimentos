@@ -3,7 +3,7 @@ import { MdDirectionsCar, MdAccessTime } from 'react-icons/md'
 import { FaExternalLinkAlt } from 'react-icons/fa'
 
 function CTA() {
-  const whatsappUrl = "https://wa.me/5511940371530?text=Olá! Gostaria de agendar uma visita ao showroom da Via Cor Revestimentos."
+  const whatsappUrl = "https://wa.me/5511940371530?text=Olá! Vim pelo Google e gostaria de mais informações sobre revestimentos"
   const mapLink = "https://www.google.com/maps/search/?api=1&query=Av.+João+Dias,+999+-+Granja+Julieta,+São+Paulo+-+SP"
 
   return (
