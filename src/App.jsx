@@ -1,5 +1,6 @@
 import { Suspense, lazy } from 'react'
 import Hero from './components/Hero'
+import Promotions from './components/Promotions'
 
 
 // Lazy load components below the fold to improve initial load time
@@ -22,6 +23,7 @@ function App() {
     <div className="min-h-screen">
       {/* Eager load critical components */}
       <Hero />
+      <Promotions />
 
       {/* Lazy load non-critical components */}
       <Suspense fallback={<SectionLoader />}>

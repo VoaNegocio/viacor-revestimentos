@@ -1,4 +1,6 @@
-@import "tailwindcss";
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
 /* Via Cor Revestimentos - Paleta de Cores da Marca */
 :root {
@@ -6,12 +8,12 @@
   --viacor-blue: #1E3A5F;
   --viacor-blue-dark: #152238;
   --viacor-blue-light: #2C3E50;
-  
+
   /* Vermelho Terracota - Cor "Cor" */
   --viacor-red: #C0392B;
   --viacor-red-dark: #A93226;
   --viacor-red-light: #E74C3C;
-  
+
   /* Gradiente de Azuis (Ciano/Celeste) - Mosaicos */
   --viacor-cyan: #3498DB;
   --viacor-cyan-light: #5DADE2;
@@ -31,7 +33,12 @@ body {
 }
 
 /* Títulos - Playfair Display (reflete o "Cor" - elegância, decoração) */
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   font-family: 'Playfair Display', serif;
   font-weight: 700;
   line-height: 1.2;
@@ -44,12 +51,15 @@ h2 {
   font-weight: 600;
 }
 
-h3, h4 {
+h3,
+h4 {
   font-weight: 600;
 }
 
 /* Destaques em itálico (reflete o "Cor" do logo) */
-em, .italic, i {
+em,
+.italic,
+i {
   font-style: italic;
   font-family: 'Playfair Display', serif;
 }
@@ -67,14 +77,17 @@ a {
 }
 
 /* Botões e CTAs */
-button, .btn, [role="button"] {
+button,
+.btn,
+[role="button"] {
   font-family: 'Inter', sans-serif;
   font-weight: 600;
   letter-spacing: 0.025em;
 }
 
 /* Labels e textos pequenos */
-small, .text-sm {
+small,
+.text-sm {
   font-family: 'Inter', sans-serif;
   font-size: 0.875rem;
   line-height: 1.5;
@@ -82,15 +95,18 @@ small, .text-sm {
 
 /* Animações Premium - Botão CTA */
 @keyframes premium-pulse {
-  0%, 100% {
+
+  0%,
+  100% {
     box-shadow: 0 0 20px rgba(16, 185, 129, 0.4),
-                0 0 40px rgba(16, 185, 129, 0.2),
-                0 0 60px rgba(16, 185, 129, 0.1);
+      0 0 40px rgba(16, 185, 129, 0.2),
+      0 0 60px rgba(16, 185, 129, 0.1);
   }
+
   50% {
     box-shadow: 0 0 30px rgba(16, 185, 129, 0.6),
-                0 0 60px rgba(16, 185, 129, 0.3),
-                0 0 90px rgba(16, 185, 129, 0.15);
+      0 0 60px rgba(16, 185, 129, 0.3),
+      0 0 90px rgba(16, 185, 129, 0.15);
   }
 }
 
@@ -98,24 +114,31 @@ small, .text-sm {
   0% {
     background-position: -1000% 0;
   }
+
   100% {
     background-position: 1000% 0;
   }
 }
 
 @keyframes premium-glow {
-  0%, 100% {
+
+  0%,
+  100% {
     filter: brightness(1);
   }
+
   50% {
     filter: brightness(1.15);
   }
 }
 
 @keyframes premium-scale {
-  0%, 100% {
+
+  0%,
+  100% {
     transform: scale(1);
   }
+
   50% {
     transform: scale(1.02);
   }
@@ -128,22 +151,25 @@ small, .text-sm {
   background: linear-gradient(135deg, #10B981 0%, #34D399 25%, #10B981 50%, #059669 75%, #10B981 100%);
   background-size: 300% 100%;
   border: 2px solid rgba(255, 255, 255, 0.2);
-  box-shadow: 
+  box-shadow:
     0 8px 32px rgba(16, 185, 129, 0.4),
     0 4px 16px rgba(16, 185, 129, 0.3),
     inset 0 1px 0 rgba(255, 255, 255, 0.2),
     inset 0 -1px 0 rgba(0, 0, 0, 0.2);
   animation: premium-pulse 3s ease-in-out infinite,
-             premium-scale 4s ease-in-out infinite,
-             gradient-shift 8s ease infinite;
+    premium-scale 4s ease-in-out infinite,
+    gradient-shift 8s ease infinite;
   transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   letter-spacing: 0.5px;
 }
 
 @keyframes gradient-shift {
-  0%, 100% {
+
+  0%,
+  100% {
     background-position: 0% 50%;
   }
+
   50% {
     background-position: 100% 50%;
   }
@@ -156,12 +182,10 @@ small, .text-sm {
   left: -100%;
   width: 100%;
   height: 100%;
-  background: linear-gradient(
-    90deg,
-    transparent,
-    rgba(255, 255, 255, 0.4),
-    transparent
-  );
+  background: linear-gradient(90deg,
+      transparent,
+      rgba(255, 255, 255, 0.4),
+      transparent);
   transition: left 0.6s ease;
 }
 
@@ -189,10 +213,10 @@ small, .text-sm {
 
 .btn-premium:hover {
   animation: premium-pulse 1s ease-in-out infinite,
-             premium-glow 1.5s ease-in-out infinite;
+    premium-glow 1.5s ease-in-out infinite;
   transform: scale(1.08) translateY(-3px);
   border-color: rgba(255, 255, 255, 0.4);
-  box-shadow: 
+  box-shadow:
     0 24px 48px rgba(16, 185, 129, 0.5),
     0 12px 24px rgba(16, 185, 129, 0.4),
     0 0 80px rgba(16, 185, 129, 0.3),
@@ -202,7 +226,7 @@ small, .text-sm {
 
 .btn-premium:active {
   transform: scale(1.02) translateY(-1px);
-  box-shadow: 
+  box-shadow:
     0 12px 24px rgba(16, 185, 129, 0.4),
     0 6px 12px rgba(16, 185, 129, 0.3),
     inset 0 2px 4px rgba(0, 0, 0, 0.2);
@@ -210,17 +234,20 @@ small, .text-sm {
 
 /* Glow Effect - Hero Title Container */
 @keyframes hero-glow {
-  0%, 100% {
+
+  0%,
+  100% {
     box-shadow: 0 0 20px rgba(255, 255, 255, 0.3),
-                0 0 40px rgba(255, 255, 255, 0.2),
-                0 0 60px rgba(255, 255, 255, 0.1),
-                inset 0 0 20px rgba(255, 255, 255, 0.1);
+      0 0 40px rgba(255, 255, 255, 0.2),
+      0 0 60px rgba(255, 255, 255, 0.1),
+      inset 0 0 20px rgba(255, 255, 255, 0.1);
   }
+
   50% {
     box-shadow: 0 0 30px rgba(255, 255, 255, 0.5),
-                0 0 60px rgba(255, 255, 255, 0.3),
-                0 0 90px rgba(255, 255, 255, 0.2),
-                inset 0 0 30px rgba(255, 255, 255, 0.15);
+      0 0 60px rgba(255, 255, 255, 0.3),
+      0 0 90px rgba(255, 255, 255, 0.2),
+      inset 0 0 30px rgba(255, 255, 255, 0.15);
   }
 }
 
@@ -236,11 +263,10 @@ small, .text-sm {
   left: -2px;
   right: -2px;
   bottom: -2px;
-  background: linear-gradient(45deg, 
-    rgba(255, 255, 255, 0.1),
-    rgba(255, 255, 255, 0.05),
-    rgba(255, 255, 255, 0.1)
-  );
+  background: linear-gradient(45deg,
+      rgba(255, 255, 255, 0.1),
+      rgba(255, 255, 255, 0.05),
+      rgba(255, 255, 255, 0.1));
   border-radius: inherit;
   z-index: -1;
   opacity: 0;
@@ -253,12 +279,15 @@ small, .text-sm {
 
 /* Scroll Horizontal - Esconder Scrollbar mas manter funcionalidade */
 .scrollbar-hide {
-  -ms-overflow-style: none;  /* IE and Edge */
-  scrollbar-width: none;  /* Firefox */
+  -ms-overflow-style: none;
+  /* IE and Edge */
+  scrollbar-width: none;
+  /* Firefox */
 }
 
 .scrollbar-hide::-webkit-scrollbar {
-  display: none;  /* Chrome, Safari and Opera */
+  display: none;
+  /* Chrome, Safari and Opera */
 }
 
 /* Scroll suave */
@@ -271,6 +300,7 @@ small, .text-sm {
   0% {
     transform: translateX(0);
   }
+
   100% {
     transform: translateX(-50%);
   }
@@ -310,6 +340,7 @@ small, .text-sm {
     opacity: 0;
     transform: translateY(30px);
   }
+
   to {
     opacity: 1;
     transform: translateY(0);
@@ -343,17 +374,20 @@ small, .text-sm {
 
 /* Logo Mobile Premium - Glow e Pulse */
 @keyframes logo-glow-pulse {
-  0%, 100% {
+
+  0%,
+  100% {
     box-shadow: 0 0 20px rgba(255, 255, 255, 0.4),
-                0 0 40px rgba(255, 255, 255, 0.2),
-                0 0 60px rgba(255, 255, 255, 0.1),
-                inset 0 0 20px rgba(255, 255, 255, 0.1);
+      0 0 40px rgba(255, 255, 255, 0.2),
+      0 0 60px rgba(255, 255, 255, 0.1),
+      inset 0 0 20px rgba(255, 255, 255, 0.1);
   }
+
   50% {
     box-shadow: 0 0 30px rgba(255, 255, 255, 0.6),
-                0 0 60px rgba(255, 255, 255, 0.3),
-                0 0 90px rgba(255, 255, 255, 0.15),
-                inset 0 0 30px rgba(255, 255, 255, 0.15);
+      0 0 60px rgba(255, 255, 255, 0.3),
+      0 0 90px rgba(255, 255, 255, 0.15),
+      inset 0 0 30px rgba(255, 255, 255, 0.15);
   }
 }
 
@@ -364,13 +398,16 @@ small, .text-sm {
 
 /* Badge Location Premium - Glow Sutil */
 @keyframes badge-glow {
-  0%, 100% {
+
+  0%,
+  100% {
     box-shadow: 0 4px 20px rgba(255, 255, 255, 0.2),
-                0 0 40px rgba(255, 255, 255, 0.1);
+      0 0 40px rgba(255, 255, 255, 0.1);
   }
+
   50% {
     box-shadow: 0 6px 30px rgba(255, 255, 255, 0.3),
-                0 0 60px rgba(255, 255, 255, 0.15);
+      0 0 60px rgba(255, 255, 255, 0.15);
   }
 }
 
@@ -380,10 +417,13 @@ small, .text-sm {
 
 /* Location Icon Pulse */
 @keyframes location-pulse {
-  0%, 100% {
+
+  0%,
+  100% {
     transform: scale(1);
     opacity: 1;
   }
+
   50% {
     transform: scale(1.1);
     opacity: 0.9;
