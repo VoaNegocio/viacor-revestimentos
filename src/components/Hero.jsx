@@ -45,7 +45,7 @@ function Hero() {
 
 
       {/* --- LOGO CENTRAL NO TOPO (VERSÃO MINIMALISTA PREMIUM) --- */}
-      <div className="absolute top-[54px] md:top-[94px] left-1/2 -translate-x-1/2 z-20 w-full max-w-7xl px-4 md:px-8 lg:px-12 pointer-events-none">
+      <div className="absolute top-[54px] left-1/2 -translate-x-1/2 z-20 w-full max-w-7xl px-4 pointer-events-none md:hidden">
         <div className="flex justify-center">
           <div className="relative group pointer-events-auto">
 

@@ -1,4 +1,5 @@
 import { Suspense, lazy } from 'react'
+import Header from './components/Header'
 import Hero from './components/Hero'
 import Promotions from './components/Promotions'
 
@@ -22,6 +23,7 @@ function App() {
   return (
     <div className="min-h-screen">
       {/* Eager load critical components */}
+      <Header />
       <Hero />
       <Promotions />
 
