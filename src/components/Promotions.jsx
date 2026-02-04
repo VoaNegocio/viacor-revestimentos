@@ -25,26 +25,10 @@ const Promotions = () => {
                             Oportunidades <span className="text-[#10B981]">Exclusivas</span>
                         </h2>
                         <p className="text-white/80 text-lg leading-relaxed mb-8">
-                            Aproveite nossas condições especiais em lotes selecionados de porcelanatos e revestimentos premium.
-                            Qualidade <span className="text-white font-semibold">Via Cor</span> com preços imperdíveis por tempo limitado.
+                            Aproveite nossas condições especiais nas principais marcas do mercado. Conheça a nossa linha promocional completa, visite o nosso showroom e aproveite!
                         </p>
 
-                        <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
-                            <div className="flex items-center gap-3 bg-white/5 backdrop-blur-sm px-4 py-3 rounded-lg border border-white/10">
-                                <span className="text-2xl">📦</span>
-                                <div className="text-left">
-                                    <p className="text-white text-sm font-semibold">Pronta Entrega</p>
-                                    <p className="text-white/60 text-xs">Retire hoje mesmo</p>
-                                </div>
-                            </div>
-                            <div className="flex items-center gap-3 bg-white/5 backdrop-blur-sm px-4 py-3 rounded-lg border border-white/10">
-                                <span className="text-2xl">💎</span>
-                                <div className="text-left">
-                                    <p className="text-white text-sm font-semibold">Peças Tipo A</p>
-                                    <p className="text-white/60 text-xs">Garantia total</p>
-                                </div>
-                            </div>
-                        </div>
+
                     </motion.div>
 
                     {/* Carousel Container */}
