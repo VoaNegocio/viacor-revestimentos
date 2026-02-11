@@ -44,29 +44,7 @@ function Hero() {
       <div className="absolute inset-0 z-[2] bg-gradient-to-b from-black/60 via-black/20 to-black/80 md:from-black/70 md:via-transparent md:to-black/90"></div>
 
 
-      {/* --- LOGO CENTRAL NO TOPO (VERSÃO MINIMALISTA PREMIUM) --- */}
-      <div className="absolute top-[54px] left-1/2 -translate-x-1/2 z-20 w-full max-w-7xl px-4 pointer-events-none md:hidden">
-        <div className="flex justify-center">
-          <div className="relative group pointer-events-auto">
 
-            {/* NOVO: Glow Branco Sutil (Substitui o verde) */}
-            <div className="absolute -inset-2 bg-white opacity-10 blur-xl rounded-xl group-hover:opacity-25 transition-opacity duration-500"></div>
-
-            {/* A Caixa de Vidro Premium (Bem mais justa e minimalista) */}
-            {/* Padding reduzido para px-3 py-2 (quase colando) */}
-            <div className="relative bg-white/5 backdrop-blur-md border border-white/10 rounded-xl px-4 py-3 md:px-4 md:py-3 shadow-xl transform transition-all duration-500 hover:scale-105 hover:bg-white/10 hover:border-white/20 hover:shadow-white/10">
-              <img
-                src="/viacor-logo.webp"
-                alt="Via Cor Revestimentos"
-                className="h-[86px] md:h-[78px] lg:h-[86px] object-contain drop-shadow-sm filter brightness-105"
-                width="150"
-                height="150"
-              />
-            </div>
-
-          </div>
-        </div>
-      </div>
 
 
 
