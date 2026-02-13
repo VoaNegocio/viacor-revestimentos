@@ -50,7 +50,7 @@ function Hero() {
 
 
       {/* --- CONTEÚDO EDITORIAL --- */}
-      <div className="relative z-10 max-w-7xl mx-auto w-full px-4 md:px-8 lg:px-12 flex flex-col justify-center h-full pt-20 md:pt-24 pb-12">
+      <div className="relative z-10 max-w-7xl mx-auto w-full px-4 md:px-8 lg:px-12 flex flex-col justify-center h-full pt-20 md:pt-24 pb-12 md:pb-40">
         <div className="max-w-4xl mx-auto md:mx-0 text-center md:text-left">
 
           {/* Título Principal (Verde Esmeralda) */}
@@ -63,7 +63,7 @@ function Hero() {
                   <span className="italic font-light text-white/90 relative z-10">alto padrão</span>
                   <span className="absolute bottom-2 left-0 w-full h-[6px] bg-[#10B981]/60 -z-0 skew-x-12"></span>
                 </span>{' '}
-                para projetos exigentes
+                que valorizam cada detalhe do seu projeto.
               </h1>
             </div>
           </div>
@@ -74,39 +74,86 @@ function Hero() {
           </p>
 
           {/* Badge de Localização & CTA */}
-          <div className="hero-fade-in-up-delay-3 flex flex-col md:flex-row items-center md:items-start gap-6">
+          <div className="hero-fade-in-up-delay-3 flex flex-col gap-6 items-center md:items-start">
 
-            {/* Botão Verde Premium */}
-            <a
-              href="https://wa.me/5511940371530?text=Olá! Vim pelo Google e gostaria de mais informações sobre revestimentos"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="group relative inline-flex items-center justify-center px-8 py-4 overflow-hidden font-semibold text-white transition-all duration-300 rounded-lg shadow-lg hover:shadow-emerald-500/40 hover:-translate-y-1"
-            >
-              <span className="absolute inset-0 w-full h-full bg-gradient-to-br from-[#059669] via-[#10B981] to-[#34D399] group-hover:bg-gradient-to-br group-hover:from-[#047857] group-hover:via-[#059669] group-hover:to-[#10B981] transition-all duration-300"></span>
-              <span className="absolute inset-0 w-full h-full bg-gradient-to-r from-transparent via-white/40 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000 ease-in-out"></span>
-              <span className="absolute inset-0 rounded-lg border border-white/20 group-hover:border-white/40 transition-colors"></span>
-              <span className="relative z-10 tracking-wide drop-shadow-md">Agendar Visita</span>
-            </a>
+            <div className="flex flex-col md:flex-row flex-wrap gap-4 w-full md:w-auto">
 
-            <div className="flex items-center gap-3 text-white/90 bg-black/40 backdrop-blur-sm px-5 py-3 rounded-lg border border-white/10 shadow-lg">
-              <HiLocationMarker className="text-[#10B981] text-xl animate-bounce" />
-              <span className="text-sm font-medium">Zona Sul de SP <span className="mx-2 opacity-50">|</span> Estacionamento Próprio</span>
+              {/* Botão 1: Catálogo */}
+              <a
+                href="https://wa.me/5511940371530?text=Olá! Vim pelo Google e gostaria de solicitar o catálogo completo."
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group relative inline-flex items-center justify-center px-6 py-4 overflow-hidden font-semibold text-white transition-all duration-300 rounded-lg shadow-lg hover:shadow-emerald-500/40 hover:-translate-y-1 bg-[#10B981] md:flex-1 text-center"
+              >
+                <span className="absolute inset-0 w-full h-full bg-gradient-to-br from-[#059669] via-[#10B981] to-[#34D399] group-hover:bg-gradient-to-br group-hover:from-[#047857] group-hover:via-[#059669] group-hover:to-[#10B981] transition-all duration-300"></span>
+                <span className="absolute inset-0 w-full h-full bg-gradient-to-r from-transparent via-white/40 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000 ease-in-out"></span>
+                <span className="absolute inset-0 rounded-lg border border-white/20 group-hover:border-white/40 transition-colors"></span>
+                <span className="relative z-10 tracking-wide drop-shadow-md text-sm md:text-base">Solicitar Catálogo</span>
+              </a>
+
+              {/* Botão 2: Ligue Agora */}
+              <a
+                href="tel:+5511940371530"
+                className="group relative inline-flex items-center justify-center px-6 py-4 overflow-hidden font-semibold text-white transition-all duration-300 rounded-lg shadow-lg hover:shadow-emerald-500/40 hover:-translate-y-1 bg-[#10B981] md:flex-1 text-center"
+              >
+                <span className="absolute inset-0 w-full h-full bg-gradient-to-br from-[#059669] via-[#10B981] to-[#34D399] group-hover:bg-gradient-to-br group-hover:from-[#047857] group-hover:via-[#059669] group-hover:to-[#10B981] transition-all duration-300"></span>
+                <span className="absolute inset-0 w-full h-full bg-gradient-to-r from-transparent via-white/40 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000 ease-in-out"></span>
+                <span className="absolute inset-0 rounded-lg border border-white/20 group-hover:border-white/40 transition-colors"></span>
+                <span className="relative z-10 tracking-wide drop-shadow-md text-sm md:text-base">Ligue agora (11) 94037-1530</span>
+              </a>
+
+              {/* Botão 3: Agendar Visita (Original) */}
+              <a
+                href="https://wa.me/5511940371530?text=Olá! Vim pelo Google e gostaria de mais informações sobre revestimentos"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group relative inline-flex items-center justify-center px-6 py-4 overflow-hidden font-semibold text-white transition-all duration-300 rounded-lg shadow-lg hover:shadow-emerald-500/40 hover:-translate-y-1 bg-[#10B981] md:flex-1 text-center"
+              >
+                <span className="absolute inset-0 w-full h-full bg-gradient-to-br from-[#059669] via-[#10B981] to-[#34D399] group-hover:bg-gradient-to-br group-hover:from-[#047857] group-hover:via-[#059669] group-hover:to-[#10B981] transition-all duration-300"></span>
+                <span className="absolute inset-0 w-full h-full bg-gradient-to-r from-transparent via-white/40 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000 ease-in-out"></span>
+                <span className="absolute inset-0 rounded-lg border border-white/20 group-hover:border-white/40 transition-colors"></span>
+                <span className="relative z-10 tracking-wide drop-shadow-md text-sm md:text-base">Agendar Visita</span>
+              </a>
+
+            </div>
+
+            <div className="flex items-center gap-3 text-white/90 bg-black/40 backdrop-blur-sm px-5 py-3 rounded-lg border border-white/10 shadow-lg w-full md:w-auto justify-center md:justify-start">
+              <HiLocationMarker className="text-[#10B981] text-xl animate-bounce flex-shrink-0" />
+              <span className="text-sm font-medium text-center md:text-left">Zona Sul de SP <span className="mx-2 opacity-50 hidden sm:inline">|</span> <br className="sm:hidden" /> Estacionamento Próprio</span>
             </div>
           </div>
-
         </div>
+
       </div>
 
       {/* --- SCROLL INDICATOR --- */}
-      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 z-20 flex flex-col items-center gap-2 animate-bounce opacity-80">
-        <span className="text-white/70 text-xs uppercase tracking-[0.2em] font-light drop-shadow-md">Explore</span>
-        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="white" viewBox="0 0 16 16" className="drop-shadow-md">
-          <path fillRule="evenodd" d="M8 1a.5.5 0 0 1 .5.5v11.793l3.146-3.147a.5.5 0 0 1 .708.708l-4 4a.5.5 0 0 1-.708 0l-4-4a.5.5 0 0 1 .708-.708L7.5 13.293V1.5A.5.5 0 0 1 8 1z" />
-        </svg>
+      {/* --- CARROSSEL DE MARCAS (Substitui o Explore) --- */}
+      {/* --- CARROSSEL DE MARCAS (Substitui o Explore) --- */}
+      <div className="absolute bottom-0 left-0 right-0 z-20 pb-0 w-full overflow-hidden">
+        <div className="w-full inline-flex flex-nowrap overflow-hidden [mask-image:_linear-gradient(to_right,transparent_0,_black_128px,_black_calc(100%-128px),transparent_100%)]">
+          <div className="flex items-center justify-center md:justify-start [&_li]:mx-8 [&_img]:max-w-none animate-scroll-infinite py-4">
+            {/* Loop Infinito de Marcas (Portinari, Castellato, Eliane, Atlas repetidos) */}
+            {[...Array(6)].map((_, i) => (
+              <>
+                <div className="relative flex-shrink-0 flex items-center justify-center h-12 md:h-20 px-6 md:px-10 py-2 md:py-4 mx-6 md:mx-10 bg-white/60 backdrop-blur-sm rounded-lg border border-slate-100 shadow-sm">
+                  <img alt="Logo Portinari" className="h-full w-auto object-contain opacity-80 grayscale transition-all duration-300" loading="lazy" width="120" height="60" src="/marcas/portinari-logo.svg" />
+                </div>
+                <div className="relative flex-shrink-0 flex items-center justify-center h-12 md:h-20 px-6 md:px-10 py-2 md:py-4 mx-6 md:mx-10 bg-white/60 backdrop-blur-sm rounded-lg border border-slate-100 shadow-sm">
+                  <img alt="Logo Castellato" className="h-full w-auto object-contain opacity-80 grayscale transition-all duration-300" loading="lazy" width="120" height="60" src="/marcas/castelato-logo3.webp" />
+                </div>
+                <div className="relative flex-shrink-0 flex items-center justify-center h-12 md:h-20 px-6 md:px-10 py-2 md:py-4 mx-6 md:mx-10 bg-white/60 backdrop-blur-sm rounded-lg border border-slate-100 shadow-sm">
+                  <img alt="Logo Eliane" className="h-full w-auto object-contain opacity-80 grayscale transition-all duration-300" loading="lazy" width="120" height="60" src="/marcas/eliane-logo.webp" />
+                </div>
+                <div className="relative flex-shrink-0 flex items-center justify-center h-12 md:h-20 px-6 md:px-10 py-2 md:py-4 mx-6 md:mx-10 bg-white/60 backdrop-blur-sm rounded-lg border border-slate-100 shadow-sm">
+                  <img alt="Logo Atlas" className="h-full w-auto object-contain opacity-80 grayscale transition-all duration-300" loading="lazy" width="120" height="60" src="/marcas/atlas-logo.webp" />
+                </div>
+              </>
+            ))}
+          </div>
+        </div>
       </div>
 
-    </section>
+    </section >
   )
 }
 
