@@ -184,7 +184,7 @@ function Brands() {
 
           <div className="text-center mb-12 md:mb-16 px-4">
             <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-slate-800 mb-6 font-serif tracking-tight max-w-5xl mx-auto">
-              Trabalhamos com quem dita tendência em acabamentos de alto padrão
+              Revestimento que deixa de ser detalhe e se torna protagonista
             </h2>
 
             {/* INFINITE CAROUSEL - Substitui as versões estáticas desktop e mobile */}
@@ -232,7 +232,7 @@ function Brands() {
 
             <div className="flex items-center justify-center gap-2 text-slate-600 mb-8 md:mb-12">
               <p className="text-base md:text-lg font-medium">
-                Garantia de sofisticação, durabilidade e excelência estética.
+                Seleção exclusiva de materiais que unem design, tecnologia e acabamento impecável.
               </p>
             </div>
           </div>
