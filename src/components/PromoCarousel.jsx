@@ -20,7 +20,7 @@ const PromoCarousel = () => {
     }, [])
 
     return (
-        <div className="relative w-full max-w-[650px] mx-auto md:mx-0 perspective-1000 group">
+        <div className="relative w-full max-w-none mx-auto md:mx-0 perspective-1000 group">
 
             {/* --- FLOATING CRYTAL CARD EFFECT --- */}
             <motion.div

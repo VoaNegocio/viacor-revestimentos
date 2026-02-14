@@ -13,7 +13,7 @@ const Promotions = () => {
 
 
             <div className="max-w-7xl mx-auto px-6 md:px-12 lg:px-16 relative z-10">
-                <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+                <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
 
                     {/* Text Content */}
                     <motion.div
@@ -21,7 +21,7 @@ const Promotions = () => {
                         whileInView={{ opacity: 1, x: 0 }}
                         viewport={{ once: true }}
                         transition={{ duration: 0.8 }}
-                        className="text-center lg:text-left relative"
+                        className="text-center lg:text-left relative lg:col-span-4"
                     >
                         <div className="relative inline-block">
                             <h2 className="font-serif font-bold text-white leading-tight">
@@ -35,6 +35,9 @@ const Promotions = () => {
                                     nas melhores marcas que você procura.
                                 </span>
                             </h2>
+                            <p className="mt-4 text-base md:text-lg text-gray-400/80 font-light leading-relaxed max-w-lg mx-auto lg:mx-0">
+                                Aproveite nossas condições especiais nas principais marcas do mercado. Conheça a nossa linha promocional completa.
+                            </p>
 
                             {/* Decorative Line */}
                             <motion.div
@@ -53,7 +56,7 @@ const Promotions = () => {
                         whileInView={{ opacity: 1, scale: 1, x: 0 }}
                         viewport={{ once: true }}
                         transition={{ duration: 0.8, delay: 0.2 }}
-                        className="flex justify-center lg:justify-end"
+                        className="flex justify-center lg:justify-end lg:col-span-8 w-full"
                     >
                         <div className="relative z-10 p-6">
                             <div className="absolute inset-0 bg-emerald-500/5 blur-3xl rounded-full -z-10 transform scale-110"></div>
