@@ -1,14 +1,8 @@
 import { useState, useEffect, useRef } from 'react'
-import { FaCheck, FaImages } from 'react-icons/fa'
+import { FaImages } from 'react-icons/fa'
 
 function Benefits() {
-  const benefits = [
-    "Revestimentos exclusivos das marcas mais desejadas: Castellato, Portinari, Eliane, Atlas e mais.",
-    "Consultoria completa do porcelanato à esquadria — com ou sem arquiteto.",
-    "Showroom sensorial com ambientações reais e materiais para todos os estilos.",
-    "Piso vinílico, pedras naturais, cimentícios, porcelanatos importados e nacionais.",
-    "Projetos assinados em bairros como Chácara Flora, Morumbi e Moema."
-  ]
+
 
   const showroomImages = [
     { src: "/fotos/showroom1.webp", alt: "Showroom Via Cor: Experiência sensorial completa" },
@@ -18,9 +12,7 @@ function Benefits() {
     { src: "/fotos/showroom5.webp", alt: "O melhor do design mundial em um só lugar" }
   ]
 
-  const benefitsRef = useRef(null)
   const showroomRef = useRef(null)
-  const [activeBenefitIndex, setActiveBenefitIndex] = useState(0)
   const [activeShowroomIndex, setActiveShowroomIndex] = useState(0)
 
   // Helper para observer
@@ -54,11 +46,9 @@ function Benefits() {
   }
 
   useEffect(() => {
-    const cleanupBenefits = setupObserver(benefitsRef, setActiveBenefitIndex)
     const cleanupShowroom = setupObserver(showroomRef, setActiveShowroomIndex)
 
     return () => {
-      if (cleanupBenefits) cleanupBenefits()
       if (cleanupShowroom) cleanupShowroom()
     }
   }, [])
@@ -104,59 +94,7 @@ function Benefits() {
       {/* --- CONTEÚDO PRINCIPAL --- */}
       <div className="max-w-7xl mx-auto relative z-10">
 
-        {/* CABEÇALHO */}
-        <div className="text-center mb-12 md:mb-16">
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-slate-800 mb-6 font-serif">
-            Ambientes com identidade, sofisticação e acabamento impecável
-          </h2>
-          <p className="text-lg md:text-xl text-slate-600 max-w-3xl mx-auto font-medium">
-            Há mais de <strong className="text-[#1E3A5F]">16 anos</strong>, ajudamos a transformar projetos em referências de bom gosto.
-          </p>
-        </div>
-
-        {/* 1. CARROSSEL DE BENEFÍCIOS (TEXTO) */}
-        <div className="relative mb-20 md:mb-32">
-          <div
-            ref={benefitsRef}
-            className="overflow-x-auto scrollbar-hide pb-8 -mx-4 px-4"
-            style={{ scrollSnapType: 'x mandatory' }}
-          >
-            <div className="flex gap-4 md:gap-6 lg:gap-8 min-w-max">
-              {benefits.map((benefit, index) => (
-                <div
-                  key={index}
-                  data-index={index}
-                  className="flex-shrink-0 w-[280px] md:w-[350px] lg:w-[400px]"
-                  style={{ scrollSnapAlign: 'center' }}
-                >
-                  <div className="bg-white/60 backdrop-blur-md border border-slate-200/60 rounded-2xl p-6 md:p-8 shadow-lg hover:shadow-2xl transition-all duration-300 h-full flex flex-col group hover:-translate-y-2 hover:bg-white/90">
-                    <div className="mb-6 flex items-center justify-center w-14 h-14 rounded-2xl bg-gradient-to-br from-[#F8FAFC] to-white border border-slate-100 shadow-sm group-hover:shadow-md transition-all duration-300">
-                      <FaCheck className="text-xl text-[#C0392B] drop-shadow-sm" />
-                    </div>
-                    <p className="text-base md:text-lg text-slate-700 leading-relaxed flex-grow font-medium">
-                      {benefit}
-                    </p>
-                    <div className="mt-6 h-1 w-12 bg-gradient-to-r from-[#1E3A5F]/20 to-transparent rounded-full group-hover:w-full transition-all duration-500"></div>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-
-          <div className="flex justify-center gap-2 mt-2">
-            {benefits.map((_, index) => (
-              <button
-                key={index}
-                onClick={() => scrollToIndex(benefitsRef, index)}
-                className={`transition-all duration-300 rounded-full ${activeBenefitIndex === index
-                  ? 'w-8 h-2 bg-[#1E3A5F]'
-                  : 'w-2 h-2 bg-slate-300 hover:bg-slate-400'
-                  }`}
-                aria-label={`Ir para benefício ${index + 1}`}
-              />
-            ))}
-          </div>
-        </div>
+        {/* SHOWROOM (MANTIDO) */}
 
         {/* 2. CARROSSEL DE SHOWROOM (FOTOS) */}
         <div>
