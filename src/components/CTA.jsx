@@ -7,7 +7,7 @@ function CTA() {
   const mapLink = "https://www.google.com/maps/search/?api=1&query=Av.+João+Dias,+999+-+Granja+Julieta,+São+Paulo+-+SP"
 
   return (
-    <section id="contato" className="py-16 md:py-24 px-4 bg-[#1E3A5F] relative overflow-hidden">
+    <section id="contato" className="py-10 md:py-16 px-4 bg-[#1E3A5F] relative overflow-hidden">
 
       {/* --- BACKGROUND PREMIUM WITH SHOWROOM PHOTO --- */}
       <div className="absolute inset-0 select-none">
@@ -40,23 +40,23 @@ function CTA() {
 
 
       <div className="max-w-7xl mx-auto relative z-10">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 md:gap-16 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-12 items-center">
 
           {/* Esquerda: Infos */}
           <div>
-            <div className="mb-10 md:mb-12">
-              <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold !text-white mb-6 font-serif leading-tight">
+            <div className="mb-6 md:mb-8">
+              <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold !text-white mb-4 font-serif leading-tight">
                 Agende sua visita e eleve o nível do seu projeto
               </h2>
-              <p className="text-lg text-white/80 font-light mb-8 max-w-lg">
+              <p className="text-base text-white/80 font-light mb-4 max-w-lg">
                 Atendimento personalizado com especialistas em acabamentos de alto padrão. Venha tomar um café conosco.
               </p>
             </div>
 
-            <div className="space-y-6">
+            <div className="space-y-3">
               {/* Endereço */}
-              <div className="flex items-start gap-5 p-4 rounded-xl hover:bg-white/5 transition-colors border border-transparent hover:border-white/10 group">
-                <div className="shrink-0 w-12 h-12 rounded-lg bg-white/10 flex items-center justify-center border border-white/10 group-hover:bg-[#C0392B] group-hover:border-[#C0392B] transition-all duration-300">
+              <div className="flex items-start gap-4 p-3 rounded-xl hover:bg-white/5 transition-colors border border-transparent hover:border-white/10 group">
+                <div className="shrink-0 w-10 h-10 rounded-lg bg-white/10 flex items-center justify-center border border-white/10 group-hover:bg-[#C0392B] group-hover:border-[#C0392B] transition-all duration-300">
                   <HiLocationMarker className="text-2xl text-white" />
                 </div>
                 <div>
@@ -70,8 +70,8 @@ function CTA() {
               </div>
 
               {/* Estacionamento */}
-              <div className="flex items-start gap-5 p-4 rounded-xl hover:bg-white/5 transition-colors border border-transparent hover:border-white/10 group">
-                <div className="shrink-0 w-12 h-12 rounded-lg bg-white/10 flex items-center justify-center border border-white/10 group-hover:bg-[#C0392B] group-hover:border-[#C0392B] transition-all duration-300">
+              <div className="flex items-start gap-4 p-3 rounded-xl hover:bg-white/5 transition-colors border border-transparent hover:border-white/10 group">
+                <div className="shrink-0 w-10 h-10 rounded-lg bg-white/10 flex items-center justify-center border border-white/10 group-hover:bg-[#C0392B] group-hover:border-[#C0392B] transition-all duration-300">
                   <MdDirectionsCar className="text-2xl text-white" />
                 </div>
                 <div>
@@ -83,8 +83,8 @@ function CTA() {
               </div>
 
               {/* Horário */}
-              <div className="flex items-start gap-5 p-4 rounded-xl hover:bg-white/5 transition-colors border border-transparent hover:border-white/10 group">
-                <div className="shrink-0 w-12 h-12 rounded-lg bg-white/10 flex items-center justify-center border border-white/10 group-hover:bg-[#C0392B] group-hover:border-[#C0392B] transition-all duration-300">
+              <div className="flex items-start gap-4 p-3 rounded-xl hover:bg-white/5 transition-colors border border-transparent hover:border-white/10 group">
+                <div className="shrink-0 w-10 h-10 rounded-lg bg-white/10 flex items-center justify-center border border-white/10 group-hover:bg-[#C0392B] group-hover:border-[#C0392B] transition-all duration-300">
                   <MdAccessTime className="text-2xl text-white" />
                 </div>
                 <div>
@@ -98,7 +98,7 @@ function CTA() {
             </div>
 
             {/* CTA Button moved here for better context */}
-            <div className="mt-10 md:mt-12">
+            <div className="mt-6 md:mt-8">
               <a
                 href={whatsappUrl}
                 target="_blank"
@@ -116,7 +116,7 @@ function CTA() {
 
 
           {/* Direita: Mapa Linkável (Full Color) */}
-          <div className="relative h-full min-h-[400px] flex items-center">
+          <div className="relative h-full min-h-[300px] flex items-center">
             {/* Decoração Traseira */}
             <div className="absolute inset-0 bg-white/5 transform translate-x-4 translate-y-4 rounded-2xl border border-white/10 -z-10"></div>
 
@@ -125,7 +125,7 @@ function CTA() {
               href={mapLink}
               target="_blank"
               rel="noopener noreferrer"
-              className="w-full h-[450px] bg-[#152238] rounded-2xl border border-white/20 p-2 shadow-2xl relative overflow-hidden group block cursor-pointer"
+              className="w-full h-[350px] bg-[#152238] rounded-2xl border border-white/20 p-2 shadow-2xl relative overflow-hidden group block cursor-pointer"
             >
               {/* Brilho no vidro */}
               <div className="absolute top-0 left-0 right-0 h-[1px] bg-gradient-to-r from-transparent via-white/50 to-transparent z-20"></div>

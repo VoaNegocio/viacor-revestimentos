@@ -3,10 +3,10 @@ import { motion, AnimatePresence } from 'framer-motion' // eslint-disable-line n
 import { HiArrowRight, HiSparkles } from 'react-icons/hi'
 
 const promoImages = [
-    "/promocao/promo1.jpg",
-    "/promocao/promo2.jpg",
-    "/promocao/promo3.jpg",
-    "/promocao/promo4.jpg"
+    "/promocao/promo1.webp",
+    "/promocao/promo2.webp",
+    "/promocao/promo3.webp",
+    "/promocao/promo4.webp"
 ]
 
 const PromoCarousel = () => {

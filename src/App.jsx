@@ -6,8 +6,6 @@ import Promotions from './components/Promotions'
 
 // Lazy load components below the fold to improve initial load time
 const Brands = lazy(() => import('./components/Brands'))
-const Testimonials = lazy(() => import('./components/Testimonials'))
-const Benefits = lazy(() => import('./components/Benefits'))
 const CTA = lazy(() => import('./components/CTA'))
 const Footer = lazy(() => import('./components/Footer'))
 const WhatsAppButton = lazy(() => import('./components/WhatsAppButton'))
@@ -30,8 +28,6 @@ function App() {
       {/* Lazy load non-critical components */}
       <Suspense fallback={<SectionLoader />}>
         <Brands />
-        <Testimonials />
-        <Benefits />
         <CTA />
         <Footer />
         <WhatsAppButton />

@@ -1,16 +1,14 @@
-import { FaHeart } from 'react-icons/fa'
-
 function Footer() {
   return (
     <footer className="relative overflow-hidden bg-[#F8FAFC] text-slate-600 py-12 px-4 border-t border-slate-200">
-      
+
       {/* --- BACKGROUND PREMIUM (Mesa de Projetos) --- */}
-      
+
       {/* 1. Base Clara Sofisticada */}
       <div className="absolute inset-0 bg-[#F8FAFC]"></div>
 
       {/* 2. Grid Arquitetônico (Blueprint Minimalista) */}
-      <div 
+      <div
         className="absolute inset-0 opacity-[0.6] pointer-events-none"
         style={{
           backgroundImage: `
@@ -35,18 +33,17 @@ function Footer() {
               Curadoria especializada em revestimentos de alto padrão para transformar projetos em obras de arte.
             </p>
           </div>
-          
+
           {/* Coluna 2 - Links */}
           <div>
             <h4 className="font-semibold mb-4 text-[#1E3A5F]">Navegação</h4>
             <ul className="space-y-3 text-sm text-slate-500">
               <li><a href="#marcas" className="hover:text-[#C0392B] transition-colors">Marcas Exclusivas</a></li>
-              <li><a href="#depoimentos" className="hover:text-[#C0392B] transition-colors">O que dizem</a></li>
               <li><a href="#beneficios" className="hover:text-[#C0392B] transition-colors">Nossos Diferenciais</a></li>
               <li><a href="#contato" className="hover:text-[#C0392B] transition-colors">Agendar Visita</a></li>
             </ul>
           </div>
-          
+
           {/* Coluna 3 - Contato */}
           <div>
             <h4 className="font-semibold mb-4 text-[#1E3A5F]">Showroom</h4>
@@ -57,17 +54,17 @@ function Footer() {
             </div>
           </div>
         </div>
-        
+
         {/* Rodapé Inferior */}
         <div className="border-t border-slate-200/60 pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-slate-400">
           <p>&copy; {new Date().getFullYear()} Via Cor Revestimentos. Todos os direitos reservados.</p>
-          
+
           <div className="flex items-center gap-1">
             <p>
               Landing Page made by <span className="font-semibold text-[#1E3A5F]">Voa Negocio Digital</span> e{' '}
-              <a 
-                href="https://almavictor.digital" 
-                target="_blank" 
+              <a
+                href="https://webdesignervictor.com"
+                target="_blank"
                 rel="noopener noreferrer"
                 className="font-semibold text-[#1E3A5F] hover:text-[#C0392B] transition-colors"
               >

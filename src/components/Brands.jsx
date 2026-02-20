@@ -1,5 +1,5 @@
-import { useState, useEffect, useCallback } from 'react'
-import { FaTimes, FaChevronLeft, FaChevronRight } from 'react-icons/fa'
+import { useState, useEffect, useCallback, useRef } from 'react'
+import { FaTimes, FaChevronLeft, FaChevronRight, FaImages } from 'react-icons/fa'
 import GalleryModal from './GalleryModal'
 
 function Brands() {
@@ -10,7 +10,7 @@ function Brands() {
     { name: 'Atlas', logo: '/marcas/atlas-logo.webp' }
   ]
 
-  // Imagens por marca - cada marca tem seu próprio conjunto de imagens
+  // Imagens por marca
   const brandImages = {
     Portinari: [
       { src: '/fotos/img1.webp', alt: 'Projeto Portinari - Via Cor Revestimentos 1' },
@@ -55,29 +55,40 @@ function Brands() {
     { id: 8, src: '/fotos/img8.webp', alt: 'Projeto Via Cor Revestimentos 8' }
   ]
 
-  // Estados para galeria por marca
-  const [selectedBrand, setSelectedBrand] = useState(null) // Marca selecionada (mostra sua galeria)
-  const [isBrandModalOpen, setIsBrandModalOpen] = useState(false) // Controla se o modal está aberto
-  const [brandModalIndex, setBrandModalIndex] = useState(0) // Índice da imagem no modal da marca
+  // Showroom images (migrated from Benefits.jsx)
+  const showroomImages = [
+    { src: "/fotos/showroom1.webp", alt: "Showroom Via Cor: Experiência sensorial completa" },
+    { src: "/fotos/showroom2.webp", alt: "Ambientações reais para inspirar seu projeto" },
+    { src: "/fotos/showroom3.webp", alt: "Variedade de texturas e acabamentos premium" },
+    { src: "/fotos/showroom4.webp", alt: "Atendimento consultivo e personalizado" },
+    { src: "/fotos/showroom5.webp", alt: "O melhor do design mundial em um só lugar" }
+  ]
 
-  // Estados para galeria geral de projetos (mantido para compatibilidade)
+  // Estados para galeria por marca
+  const [selectedBrand, setSelectedBrand] = useState(null)
+  const [isBrandModalOpen, setIsBrandModalOpen] = useState(false)
+  const [brandModalIndex, setBrandModalIndex] = useState(0)
+
+  // Estados para galeria geral de projetos
   const [selectedImage, setSelectedImage] = useState(null)
 
-  // Duplicar marcas para o efeito de carrossel infinito (várias vezes para garantir fluidez em telas largas)
-  // 4 marcas originais * 6 repetições = 24 itens no total
+  // Showroom carousel state
+  const showroomRef = useRef(null)
+  const [activeShowroomIndex, setActiveShowroomIndex] = useState(0)
+
+  // Duplicar marcas para o efeito de carrossel infinito
   const displayBrands = [...brands, ...brands, ...brands, ...brands, ...brands, ...brands]
 
   // Funções para seleção de marca e galeria
   const selectBrand = (brandName) => {
     if (selectedBrand === brandName) {
-      setSelectedBrand(null) // Clicar na mesma marca desativa o filtro
+      setSelectedBrand(null)
     } else {
       setSelectedBrand(brandName)
     }
-    setIsBrandModalOpen(false) // Fecha modal se estiver aberto
+    setIsBrandModalOpen(false)
   }
 
-  // Funções para modal de marcas
   const openBrandModal = (imageIndex) => {
     if (selectedBrand && brandImages[selectedBrand]) {
       setBrandModalIndex(imageIndex)
@@ -158,10 +169,52 @@ function Brands() {
     }
   }, [selectedImage, nextImage, prevImage])
 
+  // Showroom IntersectionObserver
+  useEffect(() => {
+    const container = showroomRef.current
+    if (!container) return
+
+    const observerOptions = {
+      root: container,
+      rootMargin: '0px',
+      threshold: [0.5, 0.6, 0.7, 0.8, 0.9]
+    }
+
+    const observerCallback = (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting && entry.intersectionRatio > 0.5) {
+          const index = parseInt(entry.target.dataset.index)
+          setActiveShowroomIndex(index)
+        }
+      })
+    }
+
+    const observer = new IntersectionObserver(observerCallback, observerOptions)
+    const cards = container.querySelectorAll('[data-index]')
+    cards.forEach((card) => observer.observe(card))
+
+    return () => {
+      cards.forEach((card) => observer.unobserve(card))
+    }
+  }, [])
+
+  const scrollShowroomTo = (index) => {
+    const container = showroomRef.current
+    if (!container) return
+    const cards = container.querySelectorAll('[data-index]')
+    if (cards[index]) {
+      cards[index].scrollIntoView({
+        behavior: 'smooth',
+        block: 'nearest',
+        inline: 'center'
+      })
+    }
+  }
+
   return (
     <section id="marcas" className="py-16 md:py-24 px-4 relative overflow-hidden bg-[#F8FAFC]">
 
-      {/* --- BACKGROUND PREMIUM (Arquitetura & Luz) --- */}
+      {/* --- BACKGROUND PREMIUM --- */}
       <div className="absolute inset-0 bg-[#F8FAFC]"></div>
       <div
         className="absolute inset-0 opacity-[0.6]"
@@ -178,7 +231,7 @@ function Brands() {
       <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-[#F8FAFC] to-transparent"></div>
 
 
-      {/* --- CONTEÚDO PRINCIPAL (Z-Index Ajustado) --- */}
+      {/* --- CONTEÚDO PRINCIPAL --- */}
       <div className="relative z-10">
         <div className="max-w-full mx-auto">
 
@@ -187,7 +240,7 @@ function Brands() {
               Revestimento que deixa de ser detalhe e se torna protagonista
             </h2>
 
-            {/* INFINITE CAROUSEL - Substitui as versões estáticas desktop e mobile */}
+            {/* INFINITE CAROUSEL */}
             <div className="w-full inline-flex flex-nowrap overflow-hidden [mask-image:_linear-gradient(to_right,transparent_0,_black_128px,_black_calc(100%-128px),transparent_100%)] mb-8">
               <div className="flex items-center justify-center md:justify-start [&_li]:mx-8 [&_img]:max-w-none animate-scroll-infinite hover:[animation-play-state:paused] py-4">
                 {displayBrands.map((brand, index) => (
@@ -223,7 +276,7 @@ function Brands() {
               </div>
             </div>
 
-            {/* Indicador Mobile - Toque para ver */}
+            {/* Indicador Mobile */}
             <div className="md:hidden text-center -mt-6 mb-8 animate-pulse">
               <span className="text-sm text-slate-500 font-medium flex items-center justify-center gap-2">
                 👆 Toque na marca para ver projetos
@@ -245,7 +298,6 @@ function Brands() {
                   Projetos {selectedBrand}
                 </h3>
 
-                {/* Desktop Grid - Fotos da Marca Selecionada */}
                 <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 lg:gap-6">
                   {getSelectedBrandImages().map((image, index) => (
                     <div
@@ -261,9 +313,7 @@ function Brands() {
                         width="1080"
                         height="1080"
                       />
-                      {/* Overlay Premium: Gradiente escuro apenas na base para texto legível */}
                       <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-
                       <div className="absolute bottom-0 left-0 right-0 p-4 transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300 opacity-0 group-hover:opacity-100">
                         <p className="text-white text-sm font-medium tracking-wide border-l-2 border-[#C0392B] pl-3">
                           Ver detalhes do projeto
@@ -279,7 +329,6 @@ function Brands() {
                   Projetos Realizados
                 </h3>
 
-                {/* Grid Geral (quando nenhuma marca está selecionada) */}
                 <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 lg:gap-6">
                   {projectImages.map((image) => (
                     <div
@@ -293,9 +342,7 @@ function Brands() {
                         className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                         loading="lazy"
                       />
-                      {/* Overlay Premium: Gradiente escuro apenas na base para texto legível */}
                       <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-
                       <div className="absolute bottom-0 left-0 right-0 p-4 transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300 opacity-0 group-hover:opacity-100">
                         <p className="text-white text-sm font-medium tracking-wide border-l-2 border-[#C0392B] pl-3">
                           Ver detalhes do projeto
@@ -306,6 +353,71 @@ function Brands() {
                 </div>
               </>
             )}
+          </div>
+
+
+          {/* ========================================== */}
+          {/* === SHOWROOM SENSORIAL (ex-Benefits) === */}
+          {/* ========================================== */}
+          <div id="beneficios" className="max-w-7xl mx-auto px-4 mt-16 md:mt-24 pt-12 md:pt-16 border-t border-slate-200/60">
+            <div className="text-center mb-10 md:mb-12">
+              <div className="inline-flex items-center justify-center gap-2 px-4 py-2 bg-white/50 backdrop-blur-sm border border-slate-200/50 rounded-full mb-4 shadow-sm">
+                <FaImages className="text-[#C0392B]" />
+                <span className="text-sm font-semibold text-slate-600 tracking-wide uppercase">Visite nosso espaço</span>
+              </div>
+              <h3 className="text-2xl md:text-3xl lg:text-4xl font-bold text-slate-800 font-serif">
+                Conheça nosso Showroom Sensorial
+              </h3>
+            </div>
+
+            <div className="relative">
+              <div
+                ref={showroomRef}
+                className="overflow-x-auto scrollbar-hide pb-12 -mx-4 px-4"
+                style={{ scrollSnapType: 'x mandatory' }}
+              >
+                <div className="flex gap-4 md:gap-6 min-w-max pl-4 md:pl-0">
+                  {showroomImages.map((img, index) => (
+                    <div
+                      key={index}
+                      data-index={index}
+                      className="flex-shrink-0 w-[300px] md:w-[450px] lg:w-[600px] aspect-[4/3]"
+                      style={{ scrollSnapAlign: 'center' }}
+                    >
+                      <div className="relative w-full h-full rounded-2xl overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-500 group border border-white/20">
+                        <img
+                          src={img.src}
+                          alt={img.alt}
+                          className="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700"
+                          loading="lazy"
+                        />
+                        <div className="absolute inset-0 bg-gradient-to-t from-[#1E3A5F]/90 via-transparent to-transparent opacity-80 md:opacity-0 md:group-hover:opacity-100 transition-opacity duration-300"></div>
+                        <div className="absolute bottom-0 left-0 right-0 p-6 translate-y-2 md:translate-y-4 md:group-hover:translate-y-0 transition-transform duration-300">
+                          <p className="text-white font-serif text-xl font-medium drop-shadow-lg opacity-100 md:opacity-0 md:group-hover:opacity-100 transition-opacity duration-300 delay-100">
+                            {img.alt}
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              {/* Dots Showroom */}
+              <div className="flex justify-center gap-2 -mt-4">
+                {showroomImages.map((_, index) => (
+                  <button
+                    key={index}
+                    onClick={() => scrollShowroomTo(index)}
+                    className={`transition-all duration-300 rounded-full ${activeShowroomIndex === index
+                      ? 'w-8 h-2 bg-[#C0392B]'
+                      : 'w-2 h-2 bg-slate-300 hover:bg-slate-400'
+                      }`}
+                    aria-label={`Ver foto ${index + 1}`}
+                  />
+                ))}
+              </div>
+            </div>
           </div>
 
           {/* Modal de Galeria por Marca */}
